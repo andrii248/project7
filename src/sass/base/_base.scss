@@ -33,3 +33,18 @@ li {
 a {
   text-decoration: none;
 }
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.33;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}

@@ -1,3 +1,9 @@
-@import './base/normalize';
-@import './base/reset';
+@import './base/base';
 @import './utils/variables';
+@import './utils/visually-hidden';
+@import './layout/header';
+@import './/layout/container';
+@import './layout/pagination';
+@import './layout/footer';
+@import './layout/modal';
+@import './components/buttons';
