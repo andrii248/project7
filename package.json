@@ -5,7 +5,7 @@
   "main": "index.js",
   "homepage": "https://andrii248.github.io/project7",
   "scripts": {
-    "dev": "parcel src/*.html",
+    "dev": "parcel src/*.html --open",
     "build": "parcel build src/*.html --public-url /project7/"
   },
   "repository": {
