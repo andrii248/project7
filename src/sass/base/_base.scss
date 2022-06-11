@@ -39,6 +39,7 @@ html {
   max-width: 100%;
   overflow-x: hidden;
 }
+
 body {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -47,4 +48,21 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+
+  @media screen and(min-width:480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 730px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 980px;
+  }
 }
