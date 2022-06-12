@@ -1,0 +1,32 @@
+<header class="overlay">
+  <div class="container">
+    <nav class="nav">
+      <div class="logo">
+        <img
+          srcset="./images/logo/logo.jpg 1x, ./images/logo/logo-2x.jpg 2x"
+          src="./images/logo/logo.jpg"
+          class="logo__image"
+          alt="Логотип фильмотеки"
+        />
+        <p class="logo__text">Filmoteka</p>
+      </div>
+      <ul class="nav__list">
+        <li class="nav__item nav__item--active">
+          <a href="./index.html" class="link nav__link">Home</a>
+        </li>
+        <li class="nav__item">
+          <a href="./index.html" class="link nav__link">My library</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="search">
+      <input class="search__input" type="text" placeholder="Поиск фильмов" name="search" />
+      <svg class="search__icon">
+        <use href="./images/icons.svg#icon-search"></use>
+      </svg>
+    </div>
+    <div class="search-error visually-hidden">
+      Search result not successful. Enter the correct movie name
+    </div>
+  </div>
+</header>
