@@ -159,7 +159,7 @@ const getFromStore = (key, page) => {
   return {
     page: page,
     totalPages: totalPages,
-    movies: array.slice(begin, end),
+    movies: array.slice(begin, end).map(item => prepareForMarkup(item)),
   };
 };
 
