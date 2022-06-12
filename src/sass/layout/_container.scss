@@ -13,3 +13,41 @@
   @media screen and (min-width: 1024px) {
   }
 }
+
+.films__list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.films__item {
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    flex-basis: calc((100% - 32px) / 2);
+
+    &:nth-child(odd) {
+      margin-right: 32px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    flex-basis: calc((100% - 32px) / 3);
+
+    &:nth-child(-n + 18) {
+      margin-right: 16px;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  &:nth-child(-n + 18) {
+    margin-bottom: 32px;
+  }
+}
