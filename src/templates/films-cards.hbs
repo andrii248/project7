@@ -1,4 +1,4 @@
-<div class="films__item">
+{{!-- <div class="films__item">
     <a class="films__link" href="">
         <ul class="films__item-content">
             <li class="films__item-poster">{{poster_path}}</li>
@@ -8,4 +8,20 @@
             </li>
         </ul>
     </a>
-</div>
+</div> --}}
+
+{{#each this}}
+  <li class='films__item'>
+    <a class='films__link' href='#'>
+      <img
+        class='films__img'
+        src='https://image.tmdb.org/t/p/w500/{{image.desktop}}'
+        alt='{{title}}'
+        width='100%'
+        loading='lazy'
+      />
+      <h2 class='films__title'>{{title}}</h2>
+      <p class='films__info'>{{genres}} | {{year}}</p>
+    </a>
+  </li>
+{{/each}}
