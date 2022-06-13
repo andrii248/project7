@@ -148,14 +148,21 @@
   }
 }
 
+.search__button {
+  position: absolute;
+  height: 12px;
+  border: none;
+  background: none;
+  padding: 0;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+}
+
 .search__icon {
   width: 12px;
   height: 12px;
-  position: absolute;
-  top: 50%;
-  right: 2px;
   display: inline-block;
-  transform: translateY(-50%);
 }
 
 .search-error {
