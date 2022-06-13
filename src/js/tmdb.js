@@ -136,9 +136,9 @@ const store = {
 };
 
 const addToStore = (key, forSaving) => {
-  // if (store[key].findIndex(item => item.id === forSaving.id) !== -1) {
-  //   return;
-  // }
+  if (store[key].findIndex(item => item.id === forSaving.id) !== -1) {
+    return;
+  }
   store[key].push(forSaving);
   storage.save(key, store[key]);
 };
