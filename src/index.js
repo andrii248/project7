@@ -4,3 +4,4 @@ import './js/trending.js';
 import './js/loader.js';
 import './js/tmdb';
 import './js/modal';
+import './js/heder-my-liberary';
