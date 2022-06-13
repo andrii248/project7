@@ -163,18 +163,18 @@ const getFromStore = (key, page) => {
   };
 };
 
-const getWathed = page => {
+const getWatched = (page = 1) => {
   return getFromStore(KEY_WATCHED, page);
 };
 
-const getQueue = page => {
+const getQueue = (page = 1) => {
   return getFromStore(KEY_QUEUE, page);
 };
 
-export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWathed, getQueue };
+export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
 
 // EXAMPLES
-
+/*
 getTrending(10)
   .then(data => {
     console.log('Get trending', data);
@@ -195,5 +195,6 @@ getMovie(705861)
   })
   .catch(e => console.log(e));
 
-console.log('Get watched', getWathed(1));
+console.log('Get watched', getWatched(1));
 console.log('Get queue', getQueue(1));
+*/
