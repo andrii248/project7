@@ -1,0 +1,50 @@
+     <div class="modal__container">
+
+
+      <div class="modal__thumb">
+         <picture>
+            <source srcset={{image.desktop}} media="(min-width: 1200px)">
+            <source srcset={{image.tablet}} media="(min-width: 768px)">
+            <source srcset={{image.mobile}} media="(min-width: 320px)">
+            <img src={{desktop}} alt={{title}} class="modal__img">
+        </picture>
+      </div>
+      <div class="modal__content">
+        <p class="modal__title">{{title}}</p>
+        <div class="modal__box">
+          <div class="film-features">
+            <p class="film-features__text">Vote / Votes</p>
+            <p class="film-features__text">Popularity</p>
+            <p class="film-features__text">Original Title</p>
+            <p class="film-features__text">Genre</p>
+          </div>
+          <div class="film-values">
+            <p class="film-values__text">
+              <span class="film-values__vote film-values__vote--color">{{vote}}</span>
+              <span class="film-values__slash">/</span>
+              <span class="film-values__vote film-values__votes--color">{{votes}}</span>
+            </p>
+            <p class="film-values__text">
+              <span class="film-value__vote">{{popularity}}</span>
+            </p>
+            <p class="film-values__text">
+              <span class="film-values__vote">{{originalTitle}}</span>
+            </p>
+            <p class="film-values__text">
+              <span class="film-values__vote">{{genres}}</span>
+            </p>
+          </div>
+        </div>
+        <div class="modal__description">
+          <p class="modal__about">About</p>
+          <p class="modal__text">{{about}}</p>
+        </div>
+        <div class="modal__btn-box">
+          <button class="modal__btn modal__btn--watched" type="button">Add to watched</button>
+          <button class="modal__btn modal__btn--queue" type="button">Add to queue</button>
+          
+        </div>
+      </div>
+    </div>
+
+

@@ -68,12 +68,12 @@ const prepareForMarkup = ({ id, title, poster_path, release_date, genre_ids = []
   };
 };
 
-const getTrending = async (page = 1) => {
+const getTrending = async (page = 1, range = 'day') => {
   const params = new URLSearchParams({
     api_key: API_KEY,
     page: page,
   });
-  const response = await axios.get(`${BASE_URL}/trending/movie/day?${params}`);
+  const response = await axios.get(`${BASE_URL}/trending/movie/${range}?${params}`);
   const data = response.data;
   return {
     page: data.page,
@@ -164,15 +164,15 @@ const getFromStore = (key, page) => {
   };
 };
 
-const getWathed = page => {
+const getWatched = (page = 1) => {
   return getFromStore(KEY_WATCHED, page);
 };
 
-const getQueue = page => {
+const getQueue = (page = 1) => {
   return getFromStore(KEY_QUEUE, page);
 };
 
-export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWathed, getQueue };
+export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
 
 // EXAMPLES
 /*
@@ -196,6 +196,6 @@ getMovie(705861)
   })
   .catch(e => console.log(e));
 
-console.log('Get watched', getWathed(1));
+console.log('Get watched', getWatched(1));
 console.log('Get queue', getQueue(1));
 */
