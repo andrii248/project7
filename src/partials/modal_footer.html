@@ -1,8 +1,11 @@
-<button data-modal-open>GoIT Students</button>
+<!-- <button data-modal-open>GoIT Students</button> -->
 
 <div class="backdrop backdrop--is-hidden" data-modal>
-  <div class="modal">
-    <button type="button" class="modal__button" data-modal-close>Close</button>
+  <div class="modal_footer">
+    <button type="button" class="modal__button" data-modal-close>
+       <svg width="18px" height="18px" class="modal__icon">
+                <use href="./images/symbol-defs.svg#icon-close"></use>
+            </svg></button>
     <h2 class="team_name">Лабораторія коду</h2>
 
     <table class="team">
@@ -50,8 +53,12 @@
 
     <ul class="contacts">
       Contacts for cooperation
-      <li class="contacts_item">tel. 012345677</li>
-      <li class="contacts_item">e-mail project7@gmail.com</li>
+      <li class="contacts_item"> <svg width="12px" height="12px" class="modal__icon">
+                <use href="./images/symbol-defs.svg#icon-phone-black"></use>
+            </svg> 012345677</li>
+      <li class="contacts_item"><svg width="12px" height="12px" class="modal__icon">
+                <use href="./images/symbol-defs.svg#icon-email"></use>
+            </svg> project7@gmail.com</li>
     </ul>
   </div>
 </div>
