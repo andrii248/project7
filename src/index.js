@@ -7,3 +7,4 @@ import './js/tmdb';
 import './js/modal';
 import './js/local_storage';
 import './js/heder-my-liberary';
+import './js/header';
