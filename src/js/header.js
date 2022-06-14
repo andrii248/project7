@@ -6,6 +6,8 @@ const refs = {
   myLibraryLink: document.querySelector('.nav__link-library'),
 };
 
+refs.logoLink.addEventListener('click', e => e.preventDefault());
+refs.homeLink.addEventListener('click', e => e.preventDefault());
 refs.myLibraryLink.addEventListener('click', onClickMyLibraryLink);
 
 function onClickMyLibraryLink(event) {
