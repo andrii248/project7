@@ -29,9 +29,9 @@
   background-color: #fff;
   color: #000;
   font-weight: 500;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 480px) {
     padding: 40px;
@@ -44,10 +44,19 @@
     padding: 40px 70px 40px 38px;
     max-width: 704px;
 
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
 
     .modal__container {
       display: flex;
+    }
+
+    // .backdrop.is-hidden & {
+    //   transform: scale(4) rotate(270deg);
+    // }
+
+    &:hover {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -90,11 +99,13 @@
   right: 8px;
   width: 30px;
   height: 30px;
+  background-color: #fff;
   color: #000;
   padding: 0;
   border: none;
-  // background-color: #fff;
   cursor: pointer;
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -180,6 +191,11 @@
   @media screen and (min-width: 1024px) {
     width: 136px;
   }
+
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal__btn:hover {
+  transform: scale(1.07);
 }
 .modal__btn--watched {
   color: #fff;

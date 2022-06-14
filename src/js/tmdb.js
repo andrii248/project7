@@ -68,12 +68,12 @@ const prepareForMarkup = ({ id, title, poster_path, release_date, genre_ids, vot
   };
 };
 
-const getTrending = async (page = 1) => {
+const getTrending = async (page = 1, range = 'day') => {
   const params = new URLSearchParams({
     api_key: API_KEY,
     page: page,
   });
-  const response = await axios.get(`${BASE_URL}/trending/movie/day?${params}`);
+  const response = await axios.get(`${BASE_URL}/trending/movie/${range}?${params}`);
   const data = response.data;
   return {
     page: data.page,
