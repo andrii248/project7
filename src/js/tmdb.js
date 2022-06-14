@@ -37,7 +37,7 @@ Image sizes:
 // TODO create and test image w92.jpg, w154.jpg, ..., original.jpg
 
 const getImageUrl = (path, size) => {
-  return path ? `${IMAGES_BASE_URL}/${size}${path}` : '/images/${size}.jpg';
+  return path ? `${IMAGES_BASE_URL}/${size}${path}` : `/images/${size}.jpg`;
 };
 
 const getImage = path => {

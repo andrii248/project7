@@ -5,7 +5,7 @@ export default function filmCardsTpl(movies) {
     <a class="films__link" href="#">
       <img
         class="films__img"
-        src = 'https://image.tmdb.org/t/p/w500/${image.desktop}';
+        src = '${image.desktop}';
         width = '100%';
         alt="${title}"
         data-id='${id}'

@@ -1,4 +1,5 @@
 import { getTrending } from './tmdb';
+import initPagination from './pagination';
 import filmCardsTpl from '../templates/films-cards.js';
 
 const refs = {
@@ -13,7 +14,11 @@ const trendingMarkup = (page, range) => {
   });
 };
 
-trendingMarkup();
+//trendingMarkup();
+
+initPagination(getTrending, movies => {
+  refs.card.innerHTML = filmCardsTpl(movies);
+});
 
 refs.week.addEventListener('click', onWeekButtonClick);
 
