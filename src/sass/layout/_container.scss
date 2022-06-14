@@ -17,7 +17,7 @@
 .films__list {
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 }
@@ -38,7 +38,7 @@
   @media screen and (min-width: 1024px) {
     flex-basis: calc((100% - 32px) / 3);
 
-    &:nth-child(-n + 18) {
+    &:nth-child(-n + 19) {
       margin-right: 16px;
     }
 
