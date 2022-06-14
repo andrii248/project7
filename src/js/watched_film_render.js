@@ -1,5 +1,5 @@
 import { addToWatched, getWathed } from "./tmdb";
-import filmCardsTpl from '../templates/films-cards.hbs';
+// import filmCardsTpl from '../templates/films-cards.hbs';
 
 // export default function addFilm
 const API_KEY = 'c1c0e09e2b2780ccf5e67712da2ef6c9';
