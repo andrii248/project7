@@ -14,7 +14,11 @@ const trendingMarkup = (page, range) => {
   });
 };
 
-trendingMarkup();
+//trendingMarkup();
+
+initPagination(getTrending, movies => {
+  refs.card.innerHTML = filmCardsTpl(movies);
+});
 
 refs.week.addEventListener('click', onWeekButtonClick);
 
