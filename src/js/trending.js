@@ -1,5 +1,5 @@
 import { getTrending } from './tmdb';
-import filmCardsTpl from '../templates/films-cards.hbs';
+import filmCardsTpl from '../templates/films-cards.js';
 
 const refs = {
   card: document.querySelector('.films__list'),
