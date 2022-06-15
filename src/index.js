@@ -9,3 +9,4 @@ import './js/local_storage';
 import './js/heder-my-liberary';
 import './js/pagination';
 import './js/header';
+import './js/dark_theme';
