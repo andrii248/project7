@@ -8,5 +8,7 @@ import './js/modal';
 import './js/local_storage';
 import './js/pagination';
 import './js/header';
+import './js/search';
+import './js/dark_theme';
 import './js/my-liberary-queue';
 import './js/my-liberary-watched';

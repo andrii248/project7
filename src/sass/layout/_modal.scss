@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .modal__backdrop {
   position: fixed;
   top: 0;
@@ -18,6 +22,8 @@
     visibility: hidden;
     pointer-events: none;
   }
+
+  
 }
 
 .modal {
@@ -25,6 +31,7 @@
   max-width: 450px;
   margin: 0 auto;
   padding: 48px 20px 40px;
+  z-index: 999;
 
   background-color: #fff;
   color: #000;
@@ -67,19 +74,19 @@
 }
 
 .modal__thumb {
-  width: 240px;
-  height: 357px;
+  min-width: 240px;
+  min-height: 357px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
-    width: 264px;
-    height: 375px;
+    min-width: 264px;
+    min-height: 375px;
     margin-right: 70px;
   }
 
   @media screen and (min-width: 1024px) {
-    width: 375px;
-    height: 478px;
+    min-width: 375px;
+    min-height: 478px;
     margin-right: 16px;
   }
 }
@@ -183,6 +190,9 @@
   text-transform: uppercase;
   cursor: pointer;
   line-height: 1.33;
+  background-color: #fff;
+  border: 1px solid #000000;
+  color: #000;
 
   @media screen and (min-width: 768px) {
     width: 125px;
@@ -196,14 +206,14 @@
 }
 .modal__btn:hover {
   transform: scale(1.07);
+  background-color: #ff6b01;
+  color: #fff;
+  border: none;
 }
 .modal__btn--watched {
-  color: #fff;
   margin-right: 20px;
   padding: 6px 27px;
-  background-color: #ff6b01;
   font-weight: 500;
-  border: none;
 
   @media screen and (min-width: 768px) {
     padding: 13px 10px;
@@ -212,9 +222,6 @@
 }
 .modal__btn--queue {
   padding: 12px;
-  border: 1px solid #000000;
-  background-color: #fff;
-  color: #000;
   font-weight: 500;
 
   @media screen and (min-width: 768px) {
