@@ -1,5 +1,6 @@
 import axios from 'axios';
 import storage from './storage';
+import images from '../images/background/*.jpg';
 
 const API_KEY = 'c1c0e09e2b2780ccf5e67712da2ef6c9';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -34,10 +35,8 @@ Image sizes:
             "original"
 */
 
-// TODO create and test image w92.jpg, w154.jpg, ..., original.jpg
-
 const getImageUrl = (path, size) => {
-  return path ? `${IMAGES_BASE_URL}/${size}${path}` : `/images/${size}.jpg`;
+  return path ? `${IMAGES_BASE_URL}/${size}${path}` : images[size];
 };
 
 const getImage = path => {
