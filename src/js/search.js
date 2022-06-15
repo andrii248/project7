@@ -23,5 +23,6 @@ form.addEventListener('submit', e => {
       return data;
     };
     initPagination(getPageSearchMovie, renderPageHome);
+    document.querySelector('.search__input').value = '';
   }
 });
