@@ -172,7 +172,33 @@ const getQueue = (page = 1) => {
   return getFromStore(KEY_QUEUE, page);
 };
 
-export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
+const getTrailerUrl = async id => {
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+  });
+  const response = await axios.get(`${BASE_URL}/movie/${id}/videos?${params}`);
+  const data = response.data;
+  let item = data.results.find(r => r.site === 'YouTube' && r.type === 'Trailer');
+  if (item) {
+    return `https://youtu.be/${item.key}`;
+  }
+  item = data.results.find(r => r.site === 'Vimeo' && r.type === 'Trailer');
+  if (item) {
+    return `https://player.vimeo.com/video/${r.key}`;
+  }
+  return null;
+};
+
+export {
+  getTrending,
+  searchMovie,
+  getMovie,
+  addToWatched,
+  addToQueue,
+  getWatched,
+  getQueue,
+  getTrailerUrl,
+};
 
 // // EXAMPLES
 // searchMovie('movie')
@@ -199,4 +225,11 @@ getMovie(705861)
 
 console.log('Get watched', getWatched(1));
 console.log('Get queue', getQueue(1));
+
+getTrailerUrl(705861).then(url => {
+  console.log(url);
+}).catch(e => { 
+  console.log(e);
+});
+
 */
