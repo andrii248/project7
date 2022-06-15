@@ -3,7 +3,7 @@ import { getWatched } from './tmdb';
 import filmCardsTpl from '../templates/films-cards.js';
 import makeHeader from './heder-my-liberary';
 
-makeHeader('library');
+// makeHeader('library');
 
 const watchedBtn = document.querySelector(".watchedBtn");
 const myLibraryLink = document.querySelector(".nav__link-library");

@@ -12,12 +12,24 @@ const trendingMarkup = (page, range) => {
   getTrending(page, range).then(data => {
     refs.card.innerHTML = filmCardsTpl(data.movies);
   });
+  if (localStorage.getItem('theme') === 'dark') {setTimeout(() => {
+         const changeText = document.querySelectorAll('.films__title');         
+         for (let title of changeText) {
+             title.classList.add('dark');
+  }
+},500);}
 };
 
 //trendingMarkup();
 
 initPagination(getTrending, movies => {
   refs.card.innerHTML = filmCardsTpl(movies);
+   if (localStorage.getItem('theme') === 'dark') {setTimeout(() => {
+         const changeText = document.querySelectorAll('.films__title');         
+         for (let title of changeText) {
+             title.classList.add('dark');
+  }
+},500);}
 });
 
 refs.week.addEventListener('click', onWeekButtonClick);
