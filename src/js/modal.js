@@ -25,7 +25,7 @@ async function onShowModal(e) {
 
   getMovie(selectedMovie)
     .then(data => {
-      const { title, originalTitle, about, image, year, genres, popularity, vote, votes } =
+      const { id, title, originalTitle, about, image, year, genres, popularity, vote, votes } =
         data.forMarkup;
       const { desktop, tablet, mobile } = image;
 
@@ -68,7 +68,7 @@ async function onShowModal(e) {
           <p class="modal__about">About</p>
           <p class="modal__text">${about}</p>
         </div>
-        <div class="modal__btn-box">
+        <div class="modal__btn-box" data-id="${id}">
           <button class="modal__btn modal__btn--watched" type="button">Add to watched</button>
           <button class="modal__btn modal__btn--queue" type="button">Add to queue</button>
         </div>
@@ -89,3 +89,4 @@ function onEscKeyClose(e) {
     refs.backdrop.classList.add('is-hidden');
   }
 }
+

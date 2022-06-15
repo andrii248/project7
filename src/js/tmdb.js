@@ -105,6 +105,7 @@ const getMovie = async id => {
   const data = response.data;
   return {
     forMarkup: {
+      id: data.id,
       title: data.title,
       image: getImage(data.poster_path),
       year: new Date(data.release_date).getFullYear(),
