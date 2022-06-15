@@ -14,13 +14,11 @@ const refs = {
   card: document.querySelector('.films__list'),
 };
 
-
 const renderPageMyLibrary = movies => {
   const watchedMovies = getWatched(movies);
   console.log(watchedMovies);
   refs.card.innerHTML = filmCardsTpl(watchedMovies.movies);
 };
-
 
 watchedBtn.addEventListener("click", initPagination(getWatched, renderPageMyLibrary));
 myLibraryLink.addEventListener("click", () => { 
@@ -43,7 +41,3 @@ myLibraryLink.addEventListener("click", () => {
 // console.log(watchedBtn);
 
 // addEventListener("click", initPagination(getWatched, renderPageMyLibrary));
-
-function clearFilmsList() {
-    refs.card.innerHTML = "";
-}
