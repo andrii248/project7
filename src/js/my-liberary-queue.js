@@ -1,11 +1,19 @@
 import initPagination from './pagination';
 import { getQueue } from './tmdb';
 
-const renderPageMyLibrary = movies => {
-  console.log(movies);
-};
+// const renderPageMyLibrary = movies => {
+//   console.log(movies);
+// };
 
-const queueBtn = document.querySelector("button .queueBtn");
-console.log(queueBtn);
 
-queueBtn.addEventListener("click", initPagination(getQueue, renderPageMyLibrary));
+// function creeateBtnFunction() { 
+//   const queueBtn = document.querySelector("button .queueBtn")
+// //   console.log(queueBtn)
+// // } 
+// setTimeout(creeateBtnFunction, 1000);
+
+// const queueBtn = document.querySelector("button .queueBtn");
+// console.log(queueBtn)
+
+// addEventListener("click", initPagination(getQueue, renderPageMyLibrary))
+//  
