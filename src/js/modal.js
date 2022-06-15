@@ -9,8 +9,6 @@ const refs = {
 };
 
 refs.movieList.addEventListener('click', onShowModal);
-document.addEventListener('keydown', onEscKeyClose);
-refs.closeBtn.addEventListener('click', onCloseModal);
 
 async function onShowModal(e) {
   e.preventDefault();
@@ -20,7 +18,6 @@ async function onShowModal(e) {
     return;
   }
   refs.backdrop.classList.remove('is-hidden');
-  // refs.backdrop.classList.add('open');
   const selectedMovie = e.target.dataset.id;
 
   getMovie(selectedMovie)
@@ -54,7 +51,7 @@ async function onShowModal(e) {
               <span class="film-values__vote film-values__votes--color">${votes}</span>
             </p>
             <p class="film-values__text">
-              <span class="film-value__vote">${popularity}</span>
+              <span class="film-value__vote">${popularity.toFixed(1)}</span>
             </p>
             <p class="film-values__text">
               <span class="film-values__vote">${originalTitle}</span>
@@ -76,17 +73,28 @@ async function onShowModal(e) {
       refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
     })
     .catch(e => console.log(e));
+
+  refs.closeBtn.addEventListener('click', onCloseModal);
+  refs.backdrop.addEventListener('click', onBackdropClick);
+  document.addEventListener('keydown', onEscKeyClose);
 }
 
-function onCloseModal(e) {
-  e.preventDefault();
-
+async function onCloseModal(e) {
   refs.backdrop.classList.add('is-hidden');
+  refs.closeBtn.removeEventListener('click', onCloseModal);
 }
 
-function onEscKeyClose(e) {
+async function onEscKeyClose(e) {
   if (e.code === 'Escape') {
     refs.backdrop.classList.add('is-hidden');
   }
+  document.removeEventListener('keydown', onEscKeyClose);
+}
+
+async function onBackdropClick(e) {
+  if (e.target.classList.contains('modal__backdrop')) {
+    refs.backdrop.classList.add('is-hidden');
+  }
+  refs.backdrop.removeEventListener('click', onBackdropClick);
 }
 
