@@ -173,7 +173,12 @@ const getQueue = (page = 1) => {
 
 export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
 
-// EXAMPLES
+// // EXAMPLES
+// searchMovie('movie')
+//   .then(data => {
+//     console.log('Search movie', data);
+//   })
+//   .catch(e => console.log(e));
 /*
 getTrending(10)
   .then(data => {
@@ -181,11 +186,7 @@ getTrending(10)
   })
   .catch(e => console.log(e));
 
-searchMovie('movie')
-  .then(data => {
-    console.log('Search movie', data);
-  })
-  .catch(e => console.log(e));
+
 
 getMovie(705861)
   .then(data => {
