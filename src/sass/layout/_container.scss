@@ -17,7 +17,7 @@
 .films__list {
   @media screen and (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
   }
 }
@@ -38,7 +38,7 @@
   @media screen and (min-width: 1024px) {
     flex-basis: calc((100% - 32px) / 3);
 
-    &:nth-child(-n + 18) {
+    &:nth-child(-n + 19) {
       margin-right: 16px;
     }
 
@@ -49,5 +49,38 @@
 
   &:nth-child(-n + 18) {
     margin-bottom: 32px;
+  }
+}
+
+.switcher {
+  display: flex;
+  justify-content: space-around;
+  width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.switcher__button {
+  width: 80px;
+  height: 25px;
+
+  background-color: $bg-color-secondary;
+  border: none;
+  border-radius: 3px;
+
+  color: $text-color-secondary;
+
+  &:disabled {
+    background-color: $bg-color-third;
+    color: $text-color-main;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 }

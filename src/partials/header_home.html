@@ -1,7 +1,7 @@
 <header class="overlay">
   <div class="container">
     <nav class="nav">
-      <div class="logo">
+      <a href="./index.html" class="logo">
         <img
           srcset="./images/logo/logo.jpg 1x, ./images/logo/logo-2x.jpg 2x"
           src="./images/logo/logo.jpg"
@@ -9,24 +9,36 @@
           alt="Логотип фильмотеки"
         />
         <p class="logo__text">Filmoteka</p>
-      </div>
+      </a>
       <ul class="nav__list">
         <li class="nav__item nav__item--active">
-          <a href="./index.html" class="link nav__link">Home</a>
+          <a href="./index.html" class="link nav__link nav__link-home">Home</a>
         </li>
         <li class="nav__item">
-          <a href="./index.html" class="link nav__link">My library</a>
+          <a href="./index.html" class="link nav__link nav__link-library">My library</a>
         </li>
       </ul>
     </nav>
-    <div class="search">
+    <form class="search">
       <input class="search__input" type="text" placeholder="Поиск фильмов" name="search" />
-      <svg class="search__icon">
-        <use href="./images/icons.svg#icon-search"></use>
-      </svg>
-    </div>
-    <div class="search-error visually-hidden">
+      <button class="search__button" type="submit">
+        <svg class="search__icon">
+          <use href="./images/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <div class="search-error is-hidden">
       Search result not successful. Enter the correct movie name
     </div>
+<div class="theme"><a href="#" class="theme_toggle">
+  <svg width=50px height=50px class="icon--moon">
+    <use href="./images/symbol-defs.svg#icon-dark_mode"></use>
+  </svg>
+      <svg width=50px height=50px class="icon--sunny">
+    <use href="./images/symbol-defs.svg#icon-light_mode"></use>
+  </svg>
+  
+</a></div>
+    
   </div>
 </header>

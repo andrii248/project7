@@ -37,7 +37,7 @@ Image sizes:
 // TODO create and test image w92.jpg, w154.jpg, ..., original.jpg
 
 const getImageUrl = (path, size) => {
-  return path ? `${IMAGES_BASE_URL}/${size}${path}` : '/images/${size}.jpg';
+  return path ? `${IMAGES_BASE_URL}/${size}${path}` : `/images/${size}.jpg`;
 };
 
 const getImage = path => {
@@ -68,12 +68,12 @@ const prepareForMarkup = ({ id, title, poster_path, release_date, genre_ids, vot
   };
 };
 
-const getTrending = async (page = 1) => {
+const getTrending = async (page = 1, range = 'day') => {
   const params = new URLSearchParams({
     api_key: API_KEY,
     page: page,
   });
-  const response = await axios.get(`${BASE_URL}/trending/movie/day?${params}`);
+  const response = await axios.get(`${BASE_URL}/trending/movie/${range}?${params}`);
   const data = response.data;
   return {
     page: data.page,
@@ -174,7 +174,12 @@ const getQueue = (page = 1) => {
 
 export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
 
-// EXAMPLES
+// // EXAMPLES
+// searchMovie('movie')
+//   .then(data => {
+//     console.log('Search movie', data);
+//   })
+//   .catch(e => console.log(e));
 /*
 getTrending(10)
   .then(data => {
@@ -182,11 +187,7 @@ getTrending(10)
   })
   .catch(e => console.log(e));
 
-searchMovie('movie')
-  .then(data => {
-    console.log('Search movie', data);
-  })
-  .catch(e => console.log(e));
+
 
 getMovie(705861)
   .then(data => {
