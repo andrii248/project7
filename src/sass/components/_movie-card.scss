@@ -16,6 +16,10 @@
 
     line-height: 1.33;
   }
+
+  &.dark {
+    color: $text-color-secondary;
+  }
 }
 
 .films__info {
