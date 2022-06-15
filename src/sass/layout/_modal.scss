@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .modal__backdrop {
   position: fixed;
   top: 0;
@@ -25,6 +29,7 @@
   max-width: 450px;
   margin: 0 auto;
   padding: 48px 20px 40px;
+  z-index: 999;
 
   background-color: #fff;
   color: #000;
@@ -68,18 +73,18 @@
 
 .modal__thumb {
   min-width: 240px;
-  height: 357px;
+  min-height: 357px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
     min-width: 264px;
-    height: 375px;
+    min-height: 375px;
     margin-right: 70px;
   }
 
   @media screen and (min-width: 1024px) {
     min-width: 375px;
-    height: 478px;
+    min-height: 478px;
     margin-right: 16px;
   }
 }
