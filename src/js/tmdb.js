@@ -1,5 +1,6 @@
 import axios from 'axios';
 import storage from './storage';
+import images from '../images/background/*.jpg';
 
 const API_KEY = 'c1c0e09e2b2780ccf5e67712da2ef6c9';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -34,10 +35,8 @@ Image sizes:
             "original"
 */
 
-// TODO create and test image w92.jpg, w154.jpg, ..., original.jpg
-
 const getImageUrl = (path, size) => {
-  return path ? `${IMAGES_BASE_URL}/${size}${path}` : `/images/${size}.jpg`;
+  return path ? `${IMAGES_BASE_URL}/${size}${path}` : images[size];
 };
 
 const getImage = path => {
@@ -172,7 +171,33 @@ const getQueue = (page = 1) => {
   return getFromStore(KEY_QUEUE, page);
 };
 
-export { getTrending, searchMovie, getMovie, addToWatched, addToQueue, getWatched, getQueue };
+const getTrailerUrl = async id => {
+  const params = new URLSearchParams({
+    api_key: API_KEY,
+  });
+  const response = await axios.get(`${BASE_URL}/movie/${id}/videos?${params}`);
+  const data = response.data;
+  let item = data.results.find(r => r.site === 'YouTube' && r.type === 'Trailer');
+  if (item) {
+    return `https://youtu.be/${item.key}`;
+  }
+  item = data.results.find(r => r.site === 'Vimeo' && r.type === 'Trailer');
+  if (item) {
+    return `https://player.vimeo.com/video/${r.key}`;
+  }
+  return null;
+};
+
+export {
+  getTrending,
+  searchMovie,
+  getMovie,
+  addToWatched,
+  addToQueue,
+  getWatched,
+  getQueue,
+  getTrailerUrl,
+};
 
 // // EXAMPLES
 // searchMovie('movie')
@@ -199,4 +224,11 @@ getMovie(705861)
 
 console.log('Get watched', getWatched(1));
 console.log('Get queue', getQueue(1));
+
+getTrailerUrl(705861).then(url => {
+  console.log(url);
+}).catch(e => { 
+  console.log(e);
+});
+
 */
