@@ -52,6 +52,20 @@
   }
 }
 
+.films__vote {
+  margin-left: 4px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  color: $text-color-secondary;
+  background-color: $bg-color-secondary;
+  @media screen and (min-width: 768px) {
+    padding: 1px 10px;
+  }
+}
+
 .switcher {
   display: flex;
   justify-content: space-around;
