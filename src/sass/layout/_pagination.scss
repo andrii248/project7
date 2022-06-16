@@ -1,16 +1,53 @@
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
+.pagination {
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
 
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+
+    color: black;
+    padding: 13px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+  }
+}
 .pagination a.active {
-  background-color: dodgerblue;
-  color: white;
+  background-color: $bg-color-pagination-active-page;
+  color: $text-color-secondary;
 }
 
 .pagination a:hover:not(.active) {
   background-color: #ddd;
+}
+
+.arrow {
+  background-color: $bg-color-third;
+  background-repeat: no-repeat;
+  background-size: 33%;
+  background-position: center;
+}
+
+.arrow--left {
+  background-image: url('../images/arrow-left.svg');
+}
+
+.arrow--right {
+  background-image: url('../images/arrow-right.svg');
+}
+
+.dots {
+  background-color: $bg-color-third;
+  background-image: url('../images/three-dots.svg');
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-position: center;
 }

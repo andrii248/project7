@@ -27,13 +27,13 @@ const renderPagination = (page, totalPages) => {
     max = totalPages;
   }
   if (page > 1) {
-    buttons.push(`<a data-page="${page - 1}">&laquo;</a>`);
+    buttons.push(`<a class="arrow arrow--left" data-page="${page - 1}"></a>`);
   }
   if (min > 1) {
     buttons.push(`<a data-page="${1}">${1}</a>`);
   }
   if (min > 2) {
-    buttons.push(`<a>...</a>`);
+    buttons.push(`<a class="dots"></a>`);
   }
   for (let i = min; i <= max; i += 1) {
     if (i === page) {
@@ -43,13 +43,13 @@ const renderPagination = (page, totalPages) => {
     }
   }
   if (max < totalPages - 1) {
-    buttons.push(`<a>...</a>`);
+    buttons.push(`<a class="dots"></a>`);
   }
   if (max < totalPages) {
     buttons.push(`<a data-page="${totalPages}">${totalPages}</a>`);
   }
   if (page < totalPages) {
-    buttons.push(`<a data-page="${page + 1}">&raquo;</a>`);
+    buttons.push(`<a class="arrow arrow--right" data-page="${page + 1}"</a>`);
   }
 
   pagination.innerHTML = buttons.join('');
