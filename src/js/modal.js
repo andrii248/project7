@@ -76,19 +76,19 @@ async function getMovieAndUpdateUI(selectedMovie) {
         </div>
       </div>`;
 
-      refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
-      if (localStorage.getItem('theme') === 'dark') {
-        const film_values = document.querySelector('.film-values');
-        const modal_description = document.querySelector('.modal__description');
-        const film_vote = document.querySelector('.film-values__votes--color')
-          console.log(modal_description);
-        modal_description.classList.add('dark');
-        film_values.classList.add('film-values--dark_theme');
-        film_vote.classList.add('film_votes--dark');
-
-      }
-    })
-    .catch(e => console.log(e));
+    refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
+    if (localStorage.getItem('theme') === 'dark') {
+      const film_values = document.querySelector('.film-values');
+      const modal_description = document.querySelector('.modal__description');
+      const film_vote = document.querySelector('.film-values__votes--color');
+      console.log(modal_description);
+      modal_description.classList.add('dark');
+      film_values.classList.add('film-values--dark_theme');
+      film_vote.classList.add('film_votes--dark');
+    }
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 function onCloseModal(e) {
