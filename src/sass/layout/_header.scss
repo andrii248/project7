@@ -151,6 +151,9 @@
 }
 
 /* Search */
+header .container{
+position: relative;
+}
 
 .search {
   position: relative;
@@ -262,12 +265,17 @@
 .icon--sunny,
 .icon--moon {
   fill: $text-color-third;
+      width: 25px;
+      height: 25px;
   
 }
 
 .theme {
   display: flex;
   justify-content: flex-end;
+  position: absolute;
+    top: 80px;
+    right: 10px;
   
 }
 
