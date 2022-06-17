@@ -54,6 +54,7 @@ const renderPage = movies => {
       }
     }, 500);
   }
+
 };
 
 refs.week.addEventListener('click', onWeekButtonClick);

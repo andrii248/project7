@@ -1,4 +1,4 @@
-import { searchMovie } from './tmdb';
+import { searchMovie, getTrending } from './tmdb';
 import initPagination from './pagination';
 import filmCardsTpl from '../templates/films-cards.js';
 
@@ -22,7 +22,13 @@ form.addEventListener('submit', e => {
       }
       return data;
     };
-    initPagination(getPageSearchMovie, renderPageHome);
+
+    getPageSearchMovie().then(data => {
+      if (data.movies.length !== 0) {
+        initPagination(getPageSearchMovie, renderPageHome);
+      }
+    });
+
     document.querySelector('.search__input').value = '';
   }
 });
