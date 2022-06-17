@@ -32,8 +32,8 @@ refs.container.addEventListener("click", (event) => {
     initPagination(getQueue, renderPage);
     queueBtn.classList.add("activeBtn");
     watchedBtn.classList.remove("activeBtn");
-    if (totalPagesQueue === 1) {
-      pagination.classList.add("visually-hidden");
-    } else { pagination.classList.remove("visually-hidden") }
+    // if (totalPagesQueue === 1) {
+    //   pagination.classList.add("visually-hidden");
+    // } else { pagination.classList.remove("visually-hidden") }
   }
 })

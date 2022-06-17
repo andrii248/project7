@@ -56,7 +56,6 @@ else {
              card.classList.remove('dark_card');
         }
     }, 500)
-    refs.filmCard.classList.remove('dark_card');
 }}
 
 
