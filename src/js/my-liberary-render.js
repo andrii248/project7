@@ -23,9 +23,7 @@ refs.container.addEventListener("click", (event) => {
     initPagination(getWatched, renderPage);
     watchedBtn.classList.add("activeBtn");
     queueBtn.classList.remove("activeBtn");
-    console.log(totalPagesWatched);
     if (totalPagesWatched === 1) {
-      console.log("good");
       pagination.classList.add("visually-hidden");
     } else { pagination.classList.remove("visually-hidden") }
   }
@@ -34,9 +32,7 @@ refs.container.addEventListener("click", (event) => {
     initPagination(getQueue, renderPage);
     queueBtn.classList.add("activeBtn");
     watchedBtn.classList.remove("activeBtn");
-    console.log(totalPagesQueue);
     if (totalPagesQueue === 1) {
-      console.log("good");
       pagination.classList.add("visually-hidden");
     } else { pagination.classList.remove("visually-hidden") }
   }
