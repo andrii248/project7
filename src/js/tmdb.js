@@ -56,7 +56,7 @@ const getGenresString = ids => {
     .join(', ');
 };
 
-const prepareForMarkup = ({ id, title, poster_path, release_date, genre_ids = [], vote_average }) => {
+const prepareForMarkup = ({ id, title, poster_path, release_date, genre_ids, vote_average }) => {
   return {
     id: id,
     title: title,
@@ -156,7 +156,6 @@ const getFromStore = (key, page) => {
   const totalPages = Math.ceil(array.length / PAGE_LIMIT);
   const begin = (page - 1) * PAGE_LIMIT;
   const end = begin + PAGE_LIMIT <= array.length ? begin + PAGE_LIMIT : array.length;
-  console.log(array)
   return {
     page: page,
     totalPages: totalPages,

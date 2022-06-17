@@ -11,14 +11,33 @@ const renderPage = movies => refs.card.innerHTML = filmCardsTpl(movies);
 
 refs.container.addEventListener("click", (event) => {
   event.preventDefault();
-
+  
   const elementClassList = event.target.classList;
-
+  const watchedBtn = refs.container.lastChild.firstChild;
+  const queueBtn = refs.container.lastChild.lastChild;
+  const totalPagesWatched = Number(getWatched().totalPages);
+  const totalPagesQueue = Number(getQueue().totalPages);
+  const pagination = document.querySelector('.pagination');
+  
   if (elementClassList.contains("watchedBtn")) {
-    initPagination(getWatched, renderPage)
+    initPagination(getWatched, renderPage);
+    watchedBtn.classList.add("activeBtn");
+    queueBtn.classList.remove("activeBtn");
+    console.log(totalPagesWatched);
+    if (totalPagesWatched === 1) {
+      console.log("good");
+      pagination.classList.add("visually-hidden");
+    } else { pagination.classList.remove("visually-hidden") }
   }
 
   if (elementClassList.contains("queueBtn")) {
-    initPagination(getQueue, renderPage)
+    initPagination(getQueue, renderPage);
+    queueBtn.classList.add("activeBtn");
+    watchedBtn.classList.remove("activeBtn");
+    console.log(totalPagesQueue);
+    if (totalPagesQueue === 1) {
+      console.log("good");
+      pagination.classList.add("visually-hidden");
+    } else { pagination.classList.remove("visually-hidden") }
   }
 })
