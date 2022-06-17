@@ -1,6 +1,7 @@
 import initPagination from './pagination';
 import { getQueue, getWatched } from './tmdb';
 import filmCardsTpl from '../templates/films-cards.js';
+import addDark from './dark_theme';
 
 const refs = {
   card: document.querySelector('.films__list'),
