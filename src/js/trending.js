@@ -8,26 +8,19 @@ const refs = {
   week: document.querySelector('#week'),
 };
 
-const trendingMarkup = (page, range) => {
-  getTrending(page, range).then(data => {
-    refs.card.innerHTML = filmCardsTpl(data.movies);
-  });
-  if (localStorage.getItem('theme') === 'dark') {
-    setTimeout(() => {
-      const changeText = document.querySelectorAll('.films__title');
-      for (let title of changeText) {
-        title.classList.add('dark');
-      }
-    }, 500);
-  } else {
-    setTimeout(() => {
-      const changeText = document.querySelectorAll('.films__title');
-      for (let title of changeText) {
-        title.classList.remove('dark');
-      }
-    }, 500);
-  }
-};
+// const trendingMarkup = (page, range) => {
+//   getTrending(page, range).then(data => {
+//     refs.card.innerHTML = filmCardsTpl(data.movies);
+//   });
+//   if (localStorage.getItem('theme') === 'dark') {
+//     setTimeout(() => {
+//       const changeText = document.querySelectorAll('.films__title');
+//       for (let title of changeText) {
+//         title.classList.add('dark');
+//       }
+//     }, 500);
+//   }
+// };
 
 //trendingMarkup();
 
@@ -68,7 +61,7 @@ refs.week.addEventListener('click', onWeekButtonClick);
 function onWeekButtonClick() {
   // trendingMarkup(1, 'week');
   initPagination(getTrendingWeek, renderPage);
-  if (refs.week.classList.contains('switcher__button--active')) {
+  if (!refs.week.classList.contains('switcher__button--active')) {
     refs.day.classList.toggle('switcher__button--active');
     refs.week.classList.toggle('switcher__button--active');
   }
@@ -79,7 +72,7 @@ refs.day.addEventListener('click', onDayButtonClick);
 function onDayButtonClick() {
   // trendingMarkup(1, 'day');
   initPagination(getTrendingDay, renderPage);
-  if (refs.day.classList.contains('switcher__button--active')) {
+  if (!refs.day.classList.contains('switcher__button--active')) {
     refs.day.classList.toggle('switcher__button--active');
     refs.week.classList.toggle('switcher__button--active');
   }
