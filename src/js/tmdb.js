@@ -53,6 +53,7 @@ const getGenresString = ids => {
       const genre = genres.find(genre => genre.id === id);
       return genre ? genre.name : '';
     })
+    .filter((el, index) => index < 2)
     .join(', ');
 };
 
