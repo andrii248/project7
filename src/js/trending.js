@@ -19,17 +19,13 @@ const trendingMarkup = (page, range) => {
         title.classList.add('dark');
       }
     }, 500);
-  }
-}
-    , 500);
-  }
-  else {
-        setTimeout(() => {
-         const changeText = document.querySelectorAll('.films__title');         
-         for (let title of changeText) {
-             title.classList.remove('dark');
-  }
-},500)
+  } else {
+    setTimeout(() => {
+      const changeText = document.querySelectorAll('.films__title');
+      for (let title of changeText) {
+        title.classList.remove('dark');
+      }
+    }, 500);
   }
 };
 
@@ -65,7 +61,6 @@ const renderPage = movies => {
       }
     }, 500);
   }
-
 };
 
 refs.week.addEventListener('click', onWeekButtonClick);
