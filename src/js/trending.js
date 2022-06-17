@@ -20,6 +20,17 @@ const trendingMarkup = (page, range) => {
       }
     }, 500);
   }
+}
+    , 500);
+  }
+  else {
+        setTimeout(() => {
+         const changeText = document.querySelectorAll('.films__title');         
+         for (let title of changeText) {
+             title.classList.remove('dark');
+  }
+},500)
+  }
 };
 
 //trendingMarkup();
@@ -62,8 +73,10 @@ refs.week.addEventListener('click', onWeekButtonClick);
 function onWeekButtonClick() {
   // trendingMarkup(1, 'week');
   initPagination(getTrendingWeek, renderPage);
-  refs.day.toggleAttribute('disabled');
-  refs.week.toggleAttribute('disabled');
+  if (refs.week.classList.contains('switcher__button--active')) {
+    refs.day.classList.toggle('switcher__button--active');
+    refs.week.classList.toggle('switcher__button--active');
+  }
 }
 
 refs.day.addEventListener('click', onDayButtonClick);
@@ -71,8 +84,10 @@ refs.day.addEventListener('click', onDayButtonClick);
 function onDayButtonClick() {
   // trendingMarkup(1, 'day');
   initPagination(getTrendingDay, renderPage);
-  refs.day.toggleAttribute('disabled');
-  refs.week.toggleAttribute('disabled');
+  if (refs.day.classList.contains('switcher__button--active')) {
+    refs.day.classList.toggle('switcher__button--active');
+    refs.week.classList.toggle('switcher__button--active');
+  }
 }
 
 onDayButtonClick();

@@ -7,6 +7,7 @@
   // position: fixed;
 }
 
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -103,6 +104,10 @@ line-height: 1.33;
 
 .team {
   margin-bottom: 20px;
+  
+  &.dark {
+    color: #fff;
+  }
 }
 
 .modal__icon {
@@ -115,3 +120,12 @@ line-height: 1.33;
   }
 }
 
+.dark_modal {
+  background-color: #121212;
+}
+
+.contacts {
+  &.dark {
+    color: #fff;
+  }
+} 

@@ -150,6 +150,15 @@ body {
 .film-values__text:not(:last-child) {
   margin-bottom: 8px;
 }
+
+.film_votes--dark {
+  color: #000;
+}
+
+.film-values--dark_theme {
+  color: #fff;
+}
+
 .film-values__vote--color {
   padding: 1px 10px;
   background: #ff6b01;
@@ -160,6 +169,9 @@ body {
   padding: 1px 4px;
   background: #f7f7f7;
   border-radius: 5px;
+  & .dark {
+    color: #000;
+  }
 }
 .film-values__slash {
   color: #8c8c8c;
@@ -171,6 +183,10 @@ body {
   }
   @media screen and (min-width: 1024px) {
     width: 391px;
+  }
+
+  &.dark {
+    color: #fff;
   }
 }
 .modal__about {
