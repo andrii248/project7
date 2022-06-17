@@ -18,13 +18,6 @@
     text-decoration: none;
     transition: background-color 0.3s;
     border-radius: 5px;
-
-    &:nth-child(2),
-    &:nth-last-child(2) {
-      @media screen and (max-width: 600px) {
-        display: none;
-      }
-    }
   }
 }
 .pagination a.active {
@@ -56,8 +49,4 @@ a.dots {
   background-repeat: no-repeat;
   background-size: 25%;
   background-position: center;
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 }
