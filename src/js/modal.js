@@ -78,6 +78,7 @@ async function getMovieAndUpdateUI(selectedMovie) {
 
     refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
     if (localStorage.getItem('theme') === 'dark') {
+      const film_title = document.querySelector('.modal__title');
       const film_values = document.querySelector('.film-values');
       const modal_description = document.querySelector('.modal__description');
       const film_vote = document.querySelector('.film-values__votes--color');
@@ -85,6 +86,7 @@ async function getMovieAndUpdateUI(selectedMovie) {
       modal_description.classList.add('dark');
       film_values.classList.add('film-values--dark_theme');
       film_vote.classList.add('film_votes--dark');
+      film_title.classList.add('title_dark');
     }
   } catch (e) {
     console.log(e);
