@@ -68,8 +68,8 @@
 
 .switcher {
   display: flex;
-  justify-content: space-around;
-  width: 170px;
+  justify-content: center;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
@@ -79,20 +79,26 @@
   width: 80px;
   height: 25px;
 
-  background-color: $bg-color-secondary;
+  background-color: $bg-color-third;
   border: none;
   border-radius: 3px;
 
+  color: $text-color-main;
+  cursor: pointer;
+  // &:disabled {
+  //   background-color: $bg-color-third;
+  //   color: $text-color-main;
+
+  //   &:hover {
+  //     transform: scale(1);
+  //   }
+  // }
+}
+
+.switcher__button--active {
+  background-color: $bg-color-secondary;
+
   color: $text-color-secondary;
-
-  &:disabled {
-    background-color: $bg-color-third;
-    color: $text-color-main;
-
-    &:hover {
-      transform: scale(1);
-    }
-  }
 
   &:hover {
     transform: scale(1.05);
