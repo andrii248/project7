@@ -1,16 +1,12 @@
 import { getMovie } from './tmdb';
 
 const refs = {
-  modal: document.querySelector('.modal'),
   movieList: document.querySelector('.films__list'),
   backdrop: document.querySelector('.modal__backdrop'),
-  closeBtn: document.querySelector('.modal__close-btn'),
   modalContainer: document.querySelector('.modal__container'),
 };
 
 refs.movieList.addEventListener('click', onShowModal);
-document.addEventListener('keydown', onEscKeyClose);
-refs.closeBtn.addEventListener('click', onCloseModal);
 
 async function onShowModal(e) {
   e.preventDefault();
@@ -20,16 +16,22 @@ async function onShowModal(e) {
     return;
   }
   refs.backdrop.classList.remove('is-hidden');
-  // refs.backdrop.classList.add('open');
+  e.stopPropagation();
   const selectedMovie = e.target.dataset.id;
 
-  getMovie(selectedMovie)
-    .then(data => {
-      const { title, originalTitle, about, image, year, genres, popularity, vote, votes } =
-        data.forMarkup;
-      const { desktop, tablet, mobile } = image;
+  getMovieAndUpdateUI(selectedMovie);
 
-      const modalMarkup = `
+  refs.backdrop.addEventListener('click', onCloseModal);
+  document.addEventListener('keydown', onEscKeyClose);
+}
+
+async function getMovieAndUpdateUI(selectedMovie) {
+  try {
+    const movie = await getMovie(selectedMovie);
+    const { id, title, originalTitle, about, image, genres, popularity, vote, votes } =
+      movie.forMarkup;
+    const { desktop, tablet, mobile } = image;
+    const modalMarkup = `
       <div class="modal__thumb">
          <picture>
             <source srcset=${desktop} media="(min-width: 1200px)">
@@ -54,7 +56,7 @@ async function onShowModal(e) {
               <span class="film-values__vote film-values__votes--color">${votes}</span>
             </p>
             <p class="film-values__text">
-              <span class="film-value__vote">${popularity}</span>
+              <span class="film-value__vote">${popularity.toFixed(1)}</span>
             </p>
             <p class="film-values__text">
               <span class="film-values__vote">${originalTitle}</span>
@@ -68,11 +70,12 @@ async function onShowModal(e) {
           <p class="modal__about">About</p>
           <p class="modal__text">${about}</p>
         </div>
-        <div class="modal__btn-box">
+        <div class="modal__btn-box" data-id="${id}">
           <button class="modal__btn modal__btn--watched" type="button">Add to watched</button>
           <button class="modal__btn modal__btn--queue" type="button">Add to queue</button>
         </div>
       </div>`;
+
       refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
       if (localStorage.getItem('theme') === 'dark') {
         const film_values = document.querySelector('.film-values');
@@ -89,13 +92,19 @@ async function onShowModal(e) {
 }
 
 function onCloseModal(e) {
-  e.preventDefault();
+  if (e.target.closest('.modal') && !e.target.closest('.modal__close-btn')) {
+    return;
+  }
 
   refs.backdrop.classList.add('is-hidden');
+  refs.backdrop.removeEventListener('click', onCloseModal);
+  document.removeEventListener('keydown', onEscKeyClose);
 }
 
 function onEscKeyClose(e) {
   if (e.code === 'Escape') {
     refs.backdrop.classList.add('is-hidden');
+    refs.backdrop.removeEventListener('click', onCloseModal);
+    document.removeEventListener('keydown', onEscKeyClose);
   }
 }
