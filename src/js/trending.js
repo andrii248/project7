@@ -4,6 +4,7 @@ import filmCardsTpl from '../templates/films-cards.js';
 
 const refs = {
   card: document.querySelector('.films__list'),
+  // buttons: document.querySelectorAll('.switcher__button'),
   day: document.querySelector('#day'),
   week: document.querySelector('#week'),
 };
@@ -21,6 +22,10 @@ const refs = {
 //     }, 500);
 //   }
 // };
+
+// if (localStorage.getItem('theme') === 'dark') {
+//   refs.buttons.classList.add('switcher__button--dark');
+// }
 
 //trendingMarkup();
 
