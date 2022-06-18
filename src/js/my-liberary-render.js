@@ -22,19 +22,22 @@ refs.container.addEventListener("click", (event) => {
   
   if (elementClassList.contains("watchedBtn")) {
     initPagination(getWatched, renderPage);
+    
     watchedBtn.classList.add("activeBtn");
     queueBtn.classList.remove("activeBtn");
     if (totalPagesWatched === 1) {
       pagination.classList.add("visually-hidden");
-    } else { pagination.classList.remove("visually-hidden") }
+    } else { pagination.classList.remove("visually-hidden") };
+    addDark();
   }
 
   if (elementClassList.contains("queueBtn")) {
     initPagination(getQueue, renderPage);
     queueBtn.classList.add("activeBtn");
     watchedBtn.classList.remove("activeBtn");
-    // if (totalPagesQueue === 1) {
-    //   pagination.classList.add("visually-hidden");
-    // } else { pagination.classList.remove("visually-hidden") }
+    if (totalPagesQueue === 1) {
+      pagination.classList.add("visually-hidden");
+    } else { pagination.classList.remove("visually-hidden") };
+    addDark();
   }
 })
