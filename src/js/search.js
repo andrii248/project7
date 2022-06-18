@@ -2,6 +2,9 @@ import { searchMovie, getTrending } from './tmdb';
 import initPagination from './pagination';
 import filmCardsTpl from '../templates/films-cards.js';
 
+/*============*/
+const switcher = document.querySelector('.switcher');
+/*============*/
 const form = document.querySelector('.search');
 const renderPageHome = movies => {
   document.querySelector('.films__list').innerHTML = filmCardsTpl(movies);
@@ -9,6 +12,9 @@ const renderPageHome = movies => {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+  /*==========*/
+  switcher.classList.add('visually-hidden');
+  /*==========*/
   const query = document.querySelector('.search__input').value.trim();
   if (query !== '') {
     const getPageSearchMovie = async page => {
