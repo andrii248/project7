@@ -2,6 +2,7 @@ import initPagination from './pagination';
 import { getQueue, getWatched } from './tmdb';
 import filmCardsTpl from '../templates/films-cards.js';
 import addDark from './dark_theme';
+import { filmTitleDark } from './dark_theme';
 
 const refs = {
   card: document.querySelector('.films__list'),
@@ -40,3 +41,4 @@ const refs = {
 //     } else { pagination.classList.remove("visually-hidden") };
 //   }
 // })
+

@@ -121,11 +121,19 @@ line-height: 1.33;
 }
 
 .dark_modal {
-  background-color: #121212;
+  background-color: #423e3e;
 }
 
-.contacts {
+.contacts__title {
   &.dark {
     color: #fff;
+    
   }
 } 
+
+.contacts__link {
+  color: #000;
+  &.dark {
+  color: #fff;
+fill: #fff;}
+}

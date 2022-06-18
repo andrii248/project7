@@ -3,6 +3,7 @@ import initPagination from './pagination';
 import { getWatched } from './tmdb';
 import { initHome } from './trending.js';
 import filmCardsTpl from '../templates/films-cards.js';
+import { filmTitleDark } from './dark_theme';
 
 const refs = {
   logoLink: document.querySelector('.logo'),
@@ -27,6 +28,8 @@ function onClickMyLibraryLink(event) {
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPageLibrary);
+
+  filmTitleDark();
 }
 
 function onClickHomeLink(event) {
@@ -39,6 +42,8 @@ function onClickHomeLink(event) {
   refs.logoLink.removeEventListener('click', onClickHomeLink);
   refs.switcher.classList.remove('visually-hidden');
   refs.moviesList.innerHTML = '';
+  initPagination(getTrending, renderPageHome);
+  filmTitleDark();
   initHome();
 }
 

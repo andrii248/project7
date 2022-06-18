@@ -1,3 +1,5 @@
+import { paginationDark } from "./dark_theme";
+
 const pagination = document.querySelector('.pagination');
 
 let getPageFunction;
@@ -7,12 +9,14 @@ const initPagination = (getPage, renderPage) => {
   getPageFunction = getPage;
   renderPageFunction = renderPage;
   setPage(1);
+    
 };
 
-const setPage = async page => {
+export const setPage = async page => {
   const data = await getPageFunction(page);
   renderPageFunction(data.movies);
   renderPagination(data.page, data.totalPages);
+ 
 };
 
 const renderPagination = (page, totalPages) => {
@@ -53,10 +57,15 @@ const renderPagination = (page, totalPages) => {
       buttons.push(`<a class="arrow arrow--right" data-page="${page + 1}"</a>`);
     }
   }
+  
   pagination.innerHTML = buttons.join('');
+// paginationDark();
+ 
+ 
 };
 
 pagination.addEventListener('click', e => {
+  
   if (e.target.nodeName !== 'A') {
     return;
   }
@@ -65,6 +74,7 @@ pagination.addEventListener('click', e => {
   if (!Number.isNaN(page)) {
     setPage(page);
   }
+  
 });
 
 export default initPagination;
