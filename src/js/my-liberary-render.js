@@ -28,7 +28,7 @@ refs.container.addEventListener("click", (event) => {
     if (totalPagesWatched === 1) {
       pagination.classList.add("visually-hidden");
     } else { pagination.classList.remove("visually-hidden") };
-    addDark();
+    
   }
 
   if (elementClassList.contains("queueBtn")) {
@@ -38,6 +38,5 @@ refs.container.addEventListener("click", (event) => {
     if (totalPagesQueue === 1) {
       pagination.classList.add("visually-hidden");
     } else { pagination.classList.remove("visually-hidden") };
-    addDark();
   }
 })
