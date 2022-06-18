@@ -37,9 +37,10 @@ function onClickHomeLink(event) {
   window.history.pushState('object or string', 'Title', '/');
   refs.homeLink.removeEventListener('click', onClickHomeLink);
   refs.logoLink.removeEventListener('click', onClickHomeLink);
-  refs.switcher.classList.add('visually-hidden');
+  refs.switcher.classList.remove('visually-hidden');
   refs.moviesList.innerHTML = '';
   initPagination(getTrending, renderPageHome);
+  initHome();
 }
 
 const renderPageHome = movies => {
