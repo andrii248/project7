@@ -6,6 +6,7 @@ import { filmTitleDark } from './dark_theme';
 
 const refs = {
   card: document.querySelector('.films__list'),
+  // buttons: document.querySelectorAll('.switcher__button'),
   day: document.querySelector('#day'),
   week: document.querySelector('#week'),
 };
