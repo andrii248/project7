@@ -78,4 +78,12 @@ function onDayButtonClick() {
   }
 }
 
-onDayButtonClick();
+//onDayButtonClick();
+
+const initHome = () => {
+  onDayButtonClick();
+};
+
+initHome();
+
+export { initHome };
