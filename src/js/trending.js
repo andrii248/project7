@@ -62,4 +62,12 @@ function onDayButtonClick() {
 }
 
 // onDayButtonClick();
-initPagination(getTrendingDay, renderPage);
+//initPagination(getTrendingDay, renderPage);
+
+const initHome = () => {
+  onDayButtonClick();
+};
+
+initHome();
+
+export { initHome };

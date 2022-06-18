@@ -42,7 +42,7 @@ function onClickHomeLink(event) {
   refs.logoLink.removeEventListener('click', onClickHomeLink);
   refs.switcher.classList.remove('visually-hidden');
   refs.moviesList.innerHTML = '';
-  initPagination(getTrending, renderPageHome);
+  // initPagination(getTrending, renderPageHome);
   filmTitleDark();
   initHome();
 }
