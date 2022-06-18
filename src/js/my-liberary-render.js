@@ -2,6 +2,7 @@ import initPagination from './pagination';
 import { getQueue, getWatched } from './tmdb';
 import filmCardsTpl from '../templates/films-cards.js';
 import addDark from './dark_theme';
+import { filmTitleDark } from './dark_theme';
 
 const refs = {
   card: document.querySelector('.films__list'),
@@ -27,6 +28,7 @@ refs.container.addEventListener("click", (event) => {
     if (totalPagesWatched === 1) {
       pagination.classList.add("visually-hidden");
     } else { pagination.classList.remove("visually-hidden") }
+    filmTitleDark();
   }
 
   if (elementClassList.contains("queueBtn")) {
@@ -37,4 +39,6 @@ refs.container.addEventListener("click", (event) => {
     //   pagination.classList.add("visually-hidden");
     // } else { pagination.classList.remove("visually-hidden") }
   }
+
+  filmTitleDark();
 })

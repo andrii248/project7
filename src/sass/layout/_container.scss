@@ -114,6 +114,11 @@
   &:hover {
     transform: scale(1.05);
   }
+
+  &.dark {
+    background-color: transparent;
+    color: #fff;
+  }
 }
 
 .switcher__button--active {

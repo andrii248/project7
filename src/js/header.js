@@ -2,6 +2,7 @@ import makeHeader from './heder-my-liberary';
 import initPagination from './pagination';
 import { getTrending, getWatched } from './tmdb';
 import filmCardsTpl from '../templates/films-cards.js';
+import { filmTitleDark } from './dark_theme';
 
 const refs = {
   logoLink: document.querySelector('.logo'),
@@ -26,6 +27,8 @@ function onClickMyLibraryLink(event) {
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPageLibrary);
+
+  filmTitleDark();
 }
 
 function onClickHomeLink(event) {
@@ -40,9 +43,10 @@ function onClickHomeLink(event) {
   refs.switcher.classList.add('visually-hidden');
   refs.moviesList.innerHTML = '';
   initPagination(getTrending, renderPageHome);
+  filmTitleDark();
 }
 
-const renderPageHome = movies => {
+export const renderPageHome = movies => {
   refs.moviesList.innerHTML = filmCardsTpl(movies);
 };
 
