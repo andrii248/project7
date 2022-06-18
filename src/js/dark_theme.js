@@ -31,12 +31,12 @@ function addDark() {
     refs.team.classList.add('dark');
     refs.contacts_title.classList.add('dark');
     refs.footer.classList.add('dark_footer');
-    setTimeout(() => {
-      const pagination_number = document.querySelectorAll('.pagination a');
-      for (let number of pagination_number) {
-        number.classList.add('dark');
-      }
-    }, 500);
+    // setTimeout(() => {
+    // const pagination_number = document.querySelectorAll('.pagination a');
+    // for (let number of pagination_number) {
+    //   number.classList.add('dark');
+    // }
+    // }, 500);
     for (let button of refs.switcherBtn) {
       button.classList.add('dark');
     }
@@ -84,6 +84,8 @@ function addDark() {
       }
     }, 500);
   }
+
+  paginationDark();
 }
 
 export function paginationDark() {
@@ -94,12 +96,16 @@ export function paginationDark() {
     for (let number of pagination_number) {
       number.classList.add('dark');
     }
-    pagination_dots.classList.add('dark');
+    if (pagination_dots) {
+      pagination_dots.classList.add('dark');
+    }
   } else {
     for (let number of pagination_number) {
       number.classList.remove('dark');
     }
-    pagination_dots.classList.remove('dark');
+    if (pagination_dots) {
+      pagination_dots.classList.remove('dark');
+    }
   }
 }
 
