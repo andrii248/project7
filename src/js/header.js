@@ -1,7 +1,9 @@
 import makeHeader from './heder-my-liberary';
 import initPagination from './pagination';
-import { getTrending, getWatched } from './tmdb';
+import { getWatched } from './tmdb';
+import { initHome } from './trending.js';
 import filmCardsTpl from '../templates/films-cards.js';
+import { filmTitleDark } from './dark_theme';
 
 const refs = {
   logoLink: document.querySelector('.logo'),
@@ -26,10 +28,11 @@ function onClickMyLibraryLink(event) {
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPageLibrary);
+
+  filmTitleDark();
 }
 
 function onClickHomeLink(event) {
-  console.log('I clicked home link');
   event.preventDefault();
   refs.homeLink.parentElement.classList.add('nav__item--active');
   refs.myLibraryLink.parentElement.classList.remove('nav__item--active');
@@ -37,14 +40,12 @@ function onClickHomeLink(event) {
   window.history.pushState('object or string', 'Title', '/');
   refs.homeLink.removeEventListener('click', onClickHomeLink);
   refs.logoLink.removeEventListener('click', onClickHomeLink);
-  refs.switcher.classList.add('visually-hidden');
+  refs.switcher.classList.remove('visually-hidden');
   refs.moviesList.innerHTML = '';
   initPagination(getTrending, renderPageHome);
+  filmTitleDark();
+  initHome();
 }
-
-const renderPageHome = movies => {
-  refs.moviesList.innerHTML = filmCardsTpl(movies);
-};
 
 const renderPageLibrary = movies => {
   refs.moviesList.innerHTML = filmCardsTpl(movies, false);

@@ -18,6 +18,10 @@
     text-decoration: none;
     transition: background-color 0.3s;
     border-radius: 5px;
+
+    &.dark {
+      color: #fff;
+    }
   }
 }
 .pagination a.active {
@@ -49,4 +53,9 @@ a.dots {
   background-repeat: no-repeat;
   background-size: 25%;
   background-position: center;
+
+  &.dark {
+    background-image: url('../images/three-dots--white.svg');
+    
+  }
 }
