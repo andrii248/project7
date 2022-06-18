@@ -7,7 +7,7 @@ const refs = {
  team: document.querySelector('.team'),
     contacts: document.querySelector('.contacts'),
     footer: document.querySelector('.footer'),
- 
+ filmCard: document.querySelector('.films__item'),
 }
 
 
@@ -24,13 +24,17 @@ function addDark() { if (localStorage.getItem('theme') === 'dark') {
     refs.team.classList.add('dark');
     refs.contacts.classList.add('dark');
     refs.footer.classList.add('dark_footer');
+    
     setTimeout(() => {
-         const changeText = document.querySelectorAll('.films__title');         
-         for (let title of changeText) {
+        const changeText = document.querySelectorAll('.films__title');
+        for (let title of changeText) {
              title.classList.add('dark');
-  }
+        }
+        const changeCard = document.querySelectorAll('.films__item');
+        for (let card of changeCard) {
+             card.classList.add('dark_card');
+        }
 },500)
-
 } 
 else {
     document.querySelector('html').classList.remove('dark');
@@ -41,12 +45,17 @@ else {
     refs.footer.classList.remove('dark_footer');
     refs.iconSunny.classList.add('visually-hidden');
     refs.iconMoon.classList.remove('visually-hidden');
+    
     setTimeout(() => {
          const changeText = document.querySelectorAll('.films__title');         
          for (let title of changeText) {
              title.classList.remove('dark');
-  }
-},500)
+        }
+         const changeCard = document.querySelectorAll('.films__item');
+        for (let card of changeCard) {
+             card.classList.remove('dark_card');
+        }
+    }, 500)
 }}
 
 
