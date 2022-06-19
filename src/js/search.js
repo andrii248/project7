@@ -1,6 +1,6 @@
 import { searchMovie, getTrending } from './tmdb';
 import onClickHomeOfLink from './header';
-import { spiner } from "./loader";
+import { spiner } from './loader';
 import initPagination from './pagination';
 import filmCardsTpl from '../templates/films-cards.js';
 
@@ -16,9 +16,7 @@ const homeLink = document.querySelector('.nav__link-home');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  /*==========*/
-  switcher.classList.add('visually-hidden');
-  /*==========*/
+
   const query = document.querySelector('.search__input').value.trim();
   if (query !== '') {
     const getPageSearchMovie = async page => {
@@ -30,7 +28,11 @@ form.addEventListener('submit', e => {
         setTimeout(() => {
           errorMessage.classList.add('is-hidden');
         }, 3000);
+      } else if (data.movies.length !== 0) {
+        /*==========*/
+        switcher.classList.add('visually-hidden');
       }
+      /*==========*/
       spiner.spinerEnd();
       return data;
     };
