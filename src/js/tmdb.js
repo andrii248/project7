@@ -137,7 +137,7 @@ const store = {
 };
 
 const addToStore = (key, forSaving) => {
-  if (store[key].findIndex(item => item.id === forSaving.id) !== -1) {
+  if (findInStore(key, forSaving.id)) {
     return;
   }
   store[key].push(forSaving);
@@ -172,6 +172,38 @@ const getQueue = (page = 1) => {
   return getFromStore(KEY_QUEUE, page);
 };
 
+const findIndexInStore = (key, id) => {
+  return store[key].findIndex(item => item.id === id);
+};
+
+const findInStore = (key, id) => {
+  return findIndexInStore(key, id) !== -1;
+};
+
+const findInWatched = id => {
+  return findInStore(KEY_WATCHED, id);
+};
+
+const findInQueue = id => {
+  return findInStore(KEY_QUEUE, id);
+};
+
+const removeFromStore = (key, id) => {
+  const index = findIndexInStore(key, id);
+  if (index !== -1) {
+    store[key].splice(index, 1);
+    storage.save(key, store[key]);
+  }
+};
+
+const removeFromWatched = id => {
+  removeFromStore(KEY_WATCHED, id);
+};
+
+const removeFromQueue = id => {
+  removeFromStore(KEY_QUEUE, id);
+};
+
 const getTrailerUrl = async id => {
   const params = new URLSearchParams({
     api_key: API_KEY,
@@ -198,6 +230,10 @@ export {
   getWatched,
   getQueue,
   getTrailerUrl,
+  findInWatched,
+  findInQueue,
+  removeFromWatched,
+  removeFromQueue,
 };
 
 // // EXAMPLES
@@ -232,4 +268,16 @@ getTrailerUrl(705861).then(url => {
   console.log(e);
 });
 
+*/
+
+/*
+// === removeFromWatched(id), removeFromQueue(id)
+const id = 508363;
+if (findInWatched(id)) {
+  removeFromWatched(id);
+}
+
+if (findInQueue(id)) {
+  removeFromQueue(id);
+}
 */
