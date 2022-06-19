@@ -41,8 +41,8 @@ const getImageUrl = (path, size) => {
 
 const getImage = path => {
   return {
-    desktop: getImageUrl(path, 'w500'),
-    tablet: getImageUrl(path, 'w342'),
+    desktop: getImageUrl(path, 'w780'),
+    tablet: getImageUrl(path, 'w500'),
     mobile: getImageUrl(path, 'w342'),
   };
 };
