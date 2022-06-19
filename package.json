@@ -28,6 +28,7 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "axios": "^0.27.2",
+    "loader": "^2.1.1",
     "vanilla-back-to-top": "^7.2.1"
   }
 }

@@ -2,6 +2,7 @@ const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modalFt: document.querySelector('[data-modal]'),
+    htmlTag: document.querySelector("html"),
   };
 
   refs.openModalBtn.addEventListener('click', onOpenModal);
@@ -9,17 +10,18 @@ const refs = {
   refs.modalFt.addEventListener('click', onBackdropClick);
 
 
-function onOpenModal() {
+function onOpenModal(e) {
+  e.preventDefault();
   window.addEventListener('keydown', onEscKeyPress);
   refs.modalFt.classList.remove('backdrop--is-hidden');
-  document.body.classList.add('modal-open');
+  refs.htmlTag.classList.add('modal-open');
 
 }
 
 function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   refs.modalFt.classList.add('backdrop--is-hidden');
-  document.body.classList.remove('modal-open');
+  refs.htmlTag.classList.remove('modal-open');
  
 
 }

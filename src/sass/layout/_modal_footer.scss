@@ -3,7 +3,7 @@
 
 .modal-open {
   overflow: hidden;
-  height: 100vh;
+  touch-action: none;
   // position: fixed;
 }
 
@@ -14,6 +14,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 20;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
