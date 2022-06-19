@@ -1,11 +1,8 @@
 import { paginationDark } from './dark_theme';
-
-//------//
 import onClickHomeOfLink from './header';
 
 const logoLink = document.querySelector('.logo');
 const homeLink = document.querySelector('.nav__link-home');
-//------//
 
 const pagination = document.querySelector('.pagination');
 
@@ -75,15 +72,15 @@ pagination.addEventListener('click', e => {
   if (!Number.isNaN(page)) {
     setPage(page);
 
-    //добавляем курср поинтер  и кликабельность на логотип и хоум//
-
-    logoLink.addEventListener('click', onClickHomeOfLink);
-    homeLink.addEventListener('click', onClickHomeOfLink);
-
-    if (page !== 1) {
+    if (page === 1) {
+      logoLink.removeEventListener('click', onClickHomeOfLink);
+      homeLink.removeEventListener('click', onClickHomeOfLink);
+      logoLink.style.cursor = 'default';
+    } else {
+      logoLink.addEventListener('click', onClickHomeOfLink);
+      homeLink.addEventListener('click', onClickHomeOfLink);
       logoLink.style.cursor = 'pointer';
     }
-    //===========//
   }
 });
 
