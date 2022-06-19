@@ -1,4 +1,5 @@
 import { searchMovie, getTrending } from './tmdb';
+import onClickHomeOfLink from './header';
 import initPagination from './pagination';
 import filmCardsTpl from '../templates/films-cards.js';
 
@@ -9,6 +10,8 @@ const form = document.querySelector('.search');
 const renderPageHome = movies => {
   document.querySelector('.films__list').innerHTML = filmCardsTpl(movies);
 };
+const logoLink = document.querySelector('.logo');
+const homeLink = document.querySelector('.nav__link-home');
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -34,7 +37,9 @@ form.addEventListener('submit', e => {
         initPagination(getPageSearchMovie, renderPageHome);
       }
     });
-
-    document.querySelector('.search__input').value = '';
+    // document.querySelector('.search__input').value = '';
+    logoLink.addEventListener('click', onClickHomeOfLink);
+    homeLink.addEventListener('click', onClickHomeOfLink);
+    logoLink.style.cursor = 'pointer';
   }
 });
