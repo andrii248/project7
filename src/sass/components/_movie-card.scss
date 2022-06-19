@@ -1,5 +1,16 @@
+.picture__wrap {
+    @media screen and (max-width: 767px) {
+        height: 90%;
+      }
+    
+      @media screen and (min-width: 768px) {
+        height: 92%;
+      }
+}      
+
 .films__img {
   border-radius: 5px;
+  height: 100%;
 }
 
 .films__title {
@@ -32,4 +43,3 @@
 
   color: $text-color-third;
 }
-
