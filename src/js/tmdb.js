@@ -204,6 +204,19 @@ const removeFromQueue = id => {
   removeFromStore(KEY_QUEUE, id);
 };
 
+const clearStore = key => {
+  store[key] = [];
+  storage.remove(key);
+};
+
+const clearWatched = () => {
+  clearStore(KEY_WATCHED);
+};
+
+const clearQueue = () => {
+  clearStore(KEY_QUEUE);
+};
+
 const getTrailerUrl = async id => {
   const params = new URLSearchParams({
     api_key: API_KEY,
@@ -234,6 +247,8 @@ export {
   findInQueue,
   removeFromWatched,
   removeFromQueue,
+  clearWatched,
+  clearQueue,
 };
 
 // // EXAMPLES
@@ -280,4 +295,10 @@ if (findInWatched(id)) {
 if (findInQueue(id)) {
   removeFromQueue(id);
 }
+*/
+
+/*
+//=== clear local storage
+clearWatched();
+clearQueue();
 */
