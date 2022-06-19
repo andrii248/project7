@@ -1,0 +1,24 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#back-to-top svg {
+  fill: $bg-color-secondary;
+  transition: all 250ms ease;
+  &:hover {
+    transform: scale(1.2);
+    fill: $bg-color-third;
+  }
+}
+
+#back-to-top {
+  transition: all 250ms ease;
+  &:hover {
+    svg {
+      transform: scale(1.2);
+      fill: $bg-color-third;
+    }
+    fill: $bg-color-third;
+    background-color: $bg-color-secondary;
+  }
+}
