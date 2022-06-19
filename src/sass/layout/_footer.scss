@@ -8,6 +8,11 @@
 
   background-color: $bg-color-third;
 
+  a {
+    color: $text-color-footer;
+    text-decoration: underline;
+  }
+
   .footer__container {
     display: flex;
     align-items: center;

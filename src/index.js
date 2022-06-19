@@ -12,3 +12,4 @@ import './js/search';
 import './js/dark_theme';
 import './js/heder-my-liberary';
 import './js/my-liberary-render';
+import './js/back_to_top';
