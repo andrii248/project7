@@ -21,6 +21,7 @@ export const setPage = async page => {
   const data = await getPageFunction(page);
   renderPageFunction(data.movies);
   renderPagination(data.page, data.totalPages);
+  window.scrollTo(0, 0);
   spiner.spinerEnd();
 };
 
