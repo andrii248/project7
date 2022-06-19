@@ -76,9 +76,6 @@ function onDayButtonClick() {
   }
 }
 
-// onDayButtonClick();
-//initPagination(getTrendingDay, renderPage);
-
 const initHome = () => {
   onDayButtonClick();
 };
