@@ -43,7 +43,7 @@ const getImage = path => {
   return {
     desktop: getImageUrl(path, 'w500'),
     tablet: getImageUrl(path, 'w342'),
-    mobile: getImageUrl(path, 'w185'),
+    mobile: getImageUrl(path, 'w342'),
   };
 };
 
