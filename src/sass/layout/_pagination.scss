@@ -18,6 +18,7 @@
     text-decoration: none;
     transition: background-color 0.3s;
     border-radius: 5px;
+    cursor: pointer;
 
     &.dark {
       color: #fff;
@@ -53,9 +54,10 @@ a.dots {
   background-repeat: no-repeat;
   background-size: 25%;
   background-position: center;
+  pointer-events: none;
+  cursor: default;
 
   &.dark {
     background-image: url('../images/three-dots--white.svg');
-    
   }
 }
