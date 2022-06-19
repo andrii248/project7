@@ -4,6 +4,13 @@ import filmCardsTpl from '../templates/films-cards.js';
 import { paginationDark } from './dark_theme';
 import { filmTitleDark } from './dark_theme';
 
+//------//
+import onClickHomeOfLink from './header';
+
+const logoLink = document.querySelector('.logo');
+const homeLink = document.querySelector('.nav__link-home');
+//------//
+
 const refs = {
   card: document.querySelector('.films__list'),
   // buttons: document.querySelectorAll('.switcher__button'),
@@ -48,6 +55,14 @@ function onWeekButtonClick() {
     refs.day.classList.toggle('switcher__button--active');
     refs.week.classList.toggle('switcher__button--active');
   }
+
+  //Добавляем курср поинтер  и кликабельность на логотип и хоум//
+
+  logoLink.addEventListener('click', onClickHomeOfLink);
+  homeLink.addEventListener('click', onClickHomeOfLink);
+
+  logoLink.style.cursor = 'pointer';
+  //===========//
 }
 
 refs.day.addEventListener('click', onDayButtonClick);
