@@ -1,5 +1,6 @@
 import { paginationDark } from './dark_theme';
 import onClickHomeOfLink from './header';
+import { spiner } from './loader';
 
 const logoLink = document.querySelector('.logo');
 const homeLink = document.querySelector('.nav__link-home');
@@ -16,9 +17,11 @@ const initPagination = (getPage, renderPage) => {
 };
 
 export const setPage = async page => {
+  spiner.spinerStart();
   const data = await getPageFunction(page);
   renderPageFunction(data.movies);
   renderPagination(data.page, data.totalPages);
+  spiner.spinerEnd();
 };
 
 const renderPagination = (page, totalPages) => {
