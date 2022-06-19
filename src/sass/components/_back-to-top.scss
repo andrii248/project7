@@ -1,0 +1,25 @@
+html {
+  scroll-behavior: smooth;
+}
+
+#back-to-top svg {
+  fill: $bg-color-secondary;
+  transition: all 0.25s ease;
+  &:hover {
+    transform: scale(1.1);
+    fill: $bg-color-third;
+  }
+}
+
+#back-to-top {
+  transition: all 0.25s ease;
+  &:hover {
+    transform: scale(1.1);
+    background-color: $bg-color-secondary;
+    fill: $bg-color-third;
+    svg {
+      transform: scale(1.1);
+      fill: $bg-color-third;
+    }
+  }
+}

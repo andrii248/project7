@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
-    "axios": "^0.27.2"
+    "axios": "^0.27.2",
+    "vanilla-back-to-top": "^7.2.1"
   }
 }
