@@ -54,6 +54,10 @@ function addDark() {
       for (let card of changeCard) {
         card.classList.add('dark_card');
       }
+      const changeEmptyContainer = document.querySelector('.emptyLibrare');
+      if (changeEmptyContainer) {
+        changeEmptyContainer.classList.add('dark')
+      };
     }, 500);
   } else {
     document.querySelector('html').classList.remove('dark');
@@ -82,6 +86,10 @@ function addDark() {
       for (let card of changeCard) {
         card.classList.remove('dark_card');
       }
+      const changeEmptyContainer = document.querySelector('.emptyLibrare');
+      if (changeEmptyContainer) {
+        changeEmptyContainer.classList.remove('dark');
+      }  
     }, 500);
   }
 
