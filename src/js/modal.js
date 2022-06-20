@@ -1,4 +1,4 @@
-import { getMovie } from './tmdb';
+import { getMovie, findInWatched, findInQueue } from './tmdb';
 
 const refs = {
   movieList: document.querySelector('.films__list'),
@@ -32,12 +32,16 @@ async function getMovieAndUpdateUI(selectedMovie) {
       movie.forMarkup;
     const { desktop, tablet, mobile } = image;
     const modalMarkup = `
-      <div class="modal__thumb">
+      <div class="modal__thumb trailer__picture">
          <picture>
             <source srcset=${desktop} media="(min-width: 1200px)">
             <source srcset=${tablet} media="(min-width: 768px)">
             <source srcset=${mobile} media="(min-width: 320px)">
             <img src=${desktop} alt=${title} class="modal__img">
+            <div class="trailer__btn" data-id="${id}">
+            <img class='youtube-icon' src='https://download.logo.wine/logo/YouTube/YouTube-Icon-Full-Color-Logo.wine.png' width='90' height='"70'/>
+            <p class="trailer__text">watch trailer</p>
+            </div>
         </picture>
       </div>
       <div class="modal__content">
@@ -90,6 +94,19 @@ async function getMovieAndUpdateUI(selectedMovie) {
     }
   } catch (e) {
     console.log(e);
+  }
+    // перевірка чи є фільм в локал-сторедж для зміни тексту
+
+  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
+  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
+  console.log(btnWatched[0].childNodes[0].data);
+
+  if (findInWatched(Number(selectedMovie))) {
+    btnWatched[0].childNodes[0].data = 'Remove from watched';
+  }
+
+  if (findInQueue(Number(selectedMovie))) {
+    btnQueue[0].childNodes[0].data = 'Remove from queue';
   }
 }
 

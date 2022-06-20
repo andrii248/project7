@@ -41,9 +41,9 @@ const getImageUrl = (path, size) => {
 
 const getImage = path => {
   return {
-    desktop: getImageUrl(path, 'w500'),
-    tablet: getImageUrl(path, 'w342'),
-    mobile: getImageUrl(path, 'w185'),
+    desktop: getImageUrl(path, 'w780'),
+    tablet: getImageUrl(path, 'w500'),
+    mobile: getImageUrl(path, 'w342'),
   };
 };
 
@@ -204,6 +204,19 @@ const removeFromQueue = id => {
   removeFromStore(KEY_QUEUE, id);
 };
 
+const clearStore = key => {
+  store[key] = [];
+  storage.remove(key);
+};
+
+const clearWatched = () => {
+  clearStore(KEY_WATCHED);
+};
+
+const clearQueue = () => {
+  clearStore(KEY_QUEUE);
+};
+
 const getTrailerUrl = async id => {
   const params = new URLSearchParams({
     api_key: API_KEY,
@@ -212,7 +225,7 @@ const getTrailerUrl = async id => {
   const data = response.data;
   let item = data.results.find(r => r.site === 'YouTube' && r.type === 'Trailer');
   if (item) {
-    return `https://youtu.be/${item.key}`;
+    return `https://www.youtube.com/embed/${item.key}`;
   }
   item = data.results.find(r => r.site === 'Vimeo' && r.type === 'Trailer');
   if (item) {
@@ -234,6 +247,8 @@ export {
   findInQueue,
   removeFromWatched,
   removeFromQueue,
+  clearWatched,
+  clearQueue,
 };
 
 // // EXAMPLES
@@ -280,4 +295,10 @@ if (findInWatched(id)) {
 if (findInQueue(id)) {
   removeFromQueue(id);
 }
+*/
+
+/*
+//=== clear local storage
+clearWatched();
+clearQueue();
 */
