@@ -96,7 +96,54 @@ body {
   height: 100%;
   object-fit: cover;
 }
+.trailer__btn {
+  position: absolute;
+  top: 30%;
+  left: 38%;
 
+  @media screen and (min-width: 768px) {
+    top: 43%;
+    left: 17%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    top: 42%;
+    left: 19%;
+    ;
+  }
+}
+
+.trailer__btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transform: scale(1);
+  transition: transform 250ms linear;
+  z-index: 100;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.trailer__picture {
+  cursor: pointer;
+}
+
+.trailer__text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trailer__picture:hover .trailer__text {
+  opacity: 1;
+  visibility: visible;
+}
 .modal__close-btn {
   display: flex;
   justify-content: center;

@@ -32,12 +32,16 @@ async function getMovieAndUpdateUI(selectedMovie) {
       movie.forMarkup;
     const { desktop, tablet, mobile } = image;
     const modalMarkup = `
-      <div class="modal__thumb">
+      <div class="modal__thumb trailer__picture">
          <picture>
             <source srcset=${desktop} media="(min-width: 1200px)">
             <source srcset=${tablet} media="(min-width: 768px)">
             <source srcset=${mobile} media="(min-width: 320px)">
             <img src=${desktop} alt=${title} class="modal__img">
+            <div class="trailer__btn" data-id="${id}">
+            <img class='youtube-icon' src='https://download.logo.wine/logo/YouTube/YouTube-Icon-Full-Color-Logo.wine.png' width='90' height='"70'/>
+            <p class="trailer__text">watch trailer</p>
+            </div>
         </picture>
       </div>
       <div class="modal__content">
