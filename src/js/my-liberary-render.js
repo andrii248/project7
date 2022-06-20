@@ -8,7 +8,7 @@ const refs = {
   theme: document.querySelector('theme'),
 };
 
-const renderPage = movies =>
+export const renderPage = movies =>
   movies.length
   ? refs.cardsList.innerHTML = filmCardsTpl(movies)
   : refs.cardsList.innerHTML = createMessageEmptyList();
@@ -35,7 +35,7 @@ refs.container.addEventListener("click", (event) => {
 
   if (elementClassList.contains("queueBtn")) {
     initPagination(getQueue, renderPage);
-    console.log(getWatched().movies.length);
+    // console.log(getWatched().movies.length);
     queueBtn.classList.add("activeBtn");
     watchedBtn.classList.remove("activeBtn");
     if (totalPagesQueue === 1) {
