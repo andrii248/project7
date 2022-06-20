@@ -74,6 +74,13 @@ function onDayButtonClick() {
     refs.day.classList.toggle('switcher__button--active');
     refs.week.classList.toggle('switcher__button--active');
   }
+
+  //--------//
+  homeLink.removeEventListener('click', onClickHomeOfLink);
+  logoLink.removeEventListener('click', onClickHomeOfLink);
+  logoLink.style.cursor = 'default';
+  document.querySelector('.search__input').value = '';
+  //--------//
 }
 
 const initHome = () => {
