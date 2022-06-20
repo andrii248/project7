@@ -15,6 +15,12 @@ async function onShowModal(e) {
   e.preventDefault();
   refs.modalContainer.innerHTML = '';
 
+  // =========== disable scroll ===============
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;
+
   if (!e.target.classList.contains('films__img')) {
     return;
   }
@@ -98,11 +104,15 @@ async function getMovieAndUpdateUI(selectedMovie) {
   } catch (e) {
     console.log(e);
   }
-    // перевірка чи є фільм в локал-сторедж для зміни тексту
+  // перевірка чи є фільм в локал-сторедж для зміни тексту
 
-  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
-  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
-  // console.log(btnWatched[0].childNodes[0].data);
+  const btnWatched = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--watched');
+  const btnQueue = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--queue');
+  console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
     btnWatched[0].childNodes[0].data = 'Remove from watched';
@@ -117,6 +127,13 @@ function onCloseModal(e) {
   if (e.target.closest('.modal') && !e.target.closest('.modal__close-btn')) {
     return;
   }
+
+  // =========== enable scroll ===============
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
 
   renderLiberyAfterCloseModal();
   refs.backdrop.classList.add('is-hidden');
@@ -138,10 +155,14 @@ function renderLiberyAfterCloseModal() {
   const queueBtn = document.querySelector('header .container').lastChild.lastChild;
   if (refs.container.className === 'overlay overlayMyLiberary') {
     if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
-      initPagination(getWatched, renderPage)
-    };
+      initPagination(getWatched, renderPage);
+    }
     if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
-      initPagination(getQueue, renderPage)
-    };
+      initPagination(getQueue, renderPage);
+    }
   }
 }
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
