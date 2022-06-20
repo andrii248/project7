@@ -11,7 +11,7 @@ refs.modalContainer.addEventListener('click', iconTrailerClick);
 function iconTrailerClick(e) {
     let id = Number(e.target.closest('div').dataset.id);
     const trailerBtn = e.target.className;
-    console.log(trailerBtn);
+    // console.log(trailerBtn);
     if (trailerBtn === 'youtube-icon' && "trailer__text") {
         getTrailerUrl(id)
             .then(url => {renderTrailer(url)
