@@ -1,11 +1,9 @@
 import { paginationDark } from './dark_theme';
-
-//------//
 import onClickHomeOfLink from './header';
+import { spiner } from './loader';
 
 const logoLink = document.querySelector('.logo');
 const homeLink = document.querySelector('.nav__link-home');
-//------//
 
 const pagination = document.querySelector('.pagination');
 
@@ -19,9 +17,12 @@ const initPagination = (getPage, renderPage) => {
 };
 
 export const setPage = async page => {
+  spiner.spinerStart();
   const data = await getPageFunction(page);
   renderPageFunction(data.movies);
   renderPagination(data.page, data.totalPages);
+  window.scrollTo(0, 0);
+  spiner.spinerEnd();
 };
 
 const renderPagination = (page, totalPages) => {
@@ -75,15 +76,15 @@ pagination.addEventListener('click', e => {
   if (!Number.isNaN(page)) {
     setPage(page);
 
-    //добавляем курср поинтер  и кликабельность на логотип и хоум//
-
-    logoLink.addEventListener('click', onClickHomeOfLink);
-    homeLink.addEventListener('click', onClickHomeOfLink);
-
-    if (page !== 1) {
+    if (page === 1) {
+      logoLink.removeEventListener('click', onClickHomeOfLink);
+      homeLink.removeEventListener('click', onClickHomeOfLink);
+      logoLink.style.cursor = 'default';
+    } else {
+      logoLink.addEventListener('click', onClickHomeOfLink);
+      homeLink.addEventListener('click', onClickHomeOfLink);
       logoLink.style.cursor = 'pointer';
     }
-    //===========//
   }
 });
 
