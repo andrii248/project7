@@ -12,6 +12,12 @@ async function onShowModal(e) {
   e.preventDefault();
   refs.modalContainer.innerHTML = '';
 
+  // =========== disable scroll ===============
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;
+
   if (!e.target.classList.contains('films__img')) {
     return;
   }
@@ -95,10 +101,14 @@ async function getMovieAndUpdateUI(selectedMovie) {
   } catch (e) {
     console.log(e);
   }
-    // перевірка чи є фільм в локал-сторедж для зміни тексту
+  // перевірка чи є фільм в локал-сторедж для зміни тексту
 
-  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
-  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
+  const btnWatched = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--watched');
+  const btnQueue = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--queue');
   console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
@@ -115,6 +125,13 @@ function onCloseModal(e) {
     return;
   }
 
+  // =========== enable scroll ===============
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+
   refs.backdrop.classList.add('is-hidden');
   refs.backdrop.removeEventListener('click', onCloseModal);
   document.removeEventListener('keydown', onEscKeyClose);
@@ -127,3 +144,7 @@ function onEscKeyClose(e) {
     document.removeEventListener('keydown', onEscKeyClose);
   }
 }
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
