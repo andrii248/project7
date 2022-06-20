@@ -1,9 +1,12 @@
-import { getMovie, findInWatched, findInQueue } from './tmdb';
+import { getMovie, findInWatched, findInQueue, getWatched, getQueue } from './tmdb';
+import { renderPage } from './my-liberary-render';
+import initPagination from './pagination';
 
 const refs = {
   movieList: document.querySelector('.films__list'),
   backdrop: document.querySelector('.modal__backdrop'),
   modalContainer: document.querySelector('.modal__container'),
+  container: document.querySelector('header'),
 };
 
 refs.movieList.addEventListener('click', onShowModal);
@@ -132,6 +135,7 @@ function onCloseModal(e) {
   body.style.top = '';
   window.scrollTo(0, parseInt(scrollY || '0') * -1);
 
+  renderLiberyAfterCloseModal();
   refs.backdrop.classList.add('is-hidden');
   refs.backdrop.removeEventListener('click', onCloseModal);
   document.removeEventListener('keydown', onEscKeyClose);
@@ -139,9 +143,23 @@ function onCloseModal(e) {
 
 function onEscKeyClose(e) {
   if (e.code === 'Escape') {
+    renderLiberyAfterCloseModal();
     refs.backdrop.classList.add('is-hidden');
     refs.backdrop.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onEscKeyClose);
+  }
+}
+
+function renderLiberyAfterCloseModal() {
+  const watcheBtn = document.querySelector('header .container').lastChild.firstChild;
+  const queueBtn = document.querySelector('header .container').lastChild.lastChild;
+  if (refs.container.className === 'overlay overlayMyLiberary') {
+    if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
+      initPagination(getWatched, renderPage);
+    }
+    if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
+      initPagination(getQueue, renderPage);
+    }
   }
 }
 
