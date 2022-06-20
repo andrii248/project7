@@ -1,0 +1,15 @@
+.emptyLibrare {
+    display:inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.emptyLibrare__text {
+    font-size: 30px;
+    line-height: 1.17;
+    text-transform: uppercase;
+    color: $text-color-main;
+    &.dark-theme__text {
+        color: $text-color-secondary;
+    }
+}
