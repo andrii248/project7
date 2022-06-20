@@ -10,7 +10,7 @@ const refs = {
 
 const renderPage = movies =>
   movies.length
-  ? refs.cardsList.innerHTML = filmCardsTpl(movies)
+  ? refs.cardsList.innerHTML = filmCardsTpl(movies, false)
   : refs.cardsList.innerHTML = createMessageEmptyList();
 
 refs.container.addEventListener("click", (event) => {
