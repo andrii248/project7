@@ -1,4 +1,4 @@
-import { getMovie } from './tmdb';
+import { getMovie, findInWatched, findInQueue } from './tmdb';
 
 const refs = {
   movieList: document.querySelector('.films__list'),
@@ -94,6 +94,19 @@ async function getMovieAndUpdateUI(selectedMovie) {
     }
   } catch (e) {
     console.log(e);
+  }
+    // перевірка чи є фільм в локал-сторедж для зміни тексту
+
+  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
+  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
+  console.log(btnWatched[0].childNodes[0].data);
+
+  if (findInWatched(Number(selectedMovie))) {
+    btnWatched[0].childNodes[0].data = 'Remove from watched';
+  }
+
+  if (findInQueue(Number(selectedMovie))) {
+    btnQueue[0].childNodes[0].data = 'Remove from queue';
   }
 }
 
