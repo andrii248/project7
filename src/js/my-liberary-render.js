@@ -21,7 +21,7 @@ refs.container.addEventListener("click", (event) => {
   const queueBtn = refs.container.lastChild.lastChild;
   const totalPagesWatched = Number(getWatched().totalPages);
   const totalPagesQueue = Number(getQueue().totalPages);
-  const pagination = document.querySelector('.pagination');
+  const pagination = document.querySelector(".pagination");
 
   if (elementClassList.contains("watchedBtn")) {
     initPagination(getWatched, renderPage);
@@ -45,5 +45,7 @@ refs.container.addEventListener("click", (event) => {
 })
 
 const createMessageEmptyList = () => {
-  return '<div class="emptyLibrare"><p class="emptyLibrare__text"> your movie list is empty. add a movie to your library</p></div>';
+  const isDarkTheme = localStorage.getItem("theme") === "dark";
+  const darkThemeClass = isDarkTheme ? "dark" : "";
+  return `<div class="emptyLibrare ${darkThemeClass}"><p class="emptyLibrare__text"> your movie list is empty. add a movie to your library</p></div>`;
 }

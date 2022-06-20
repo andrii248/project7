@@ -3,6 +3,7 @@ export default function makeHeader(headerType) {
   const container = document.querySelector('header .container');
   const overlay = document.querySelector('header');
   const buttons = document.querySelector('.btnBlock');
+  const activeBtn = document.querySelector('.btnBlock .activeBtn');
 
   const markup =
     '<div class="btnBlock"><button type="button" class="header__btn watchedBtn activeBtn">watched</button><button type="button" class="header__btn queueBtn">queue</button></div>';
@@ -16,6 +17,10 @@ export default function makeHeader(headerType) {
     overlay.classList.add('overlayMyLiberary');
     if (!buttons) {
       container.insertAdjacentHTML('beforeend', markup);
-    } else buttons.classList.remove('visually-hidden');
+    } else {
+      buttons.classList.remove('visually-hidden');
+      activeBtn.classList.remove('activeBtn');
+      buttons.firstChild.classList.add('activeBtn');
+    };
   }
 }
