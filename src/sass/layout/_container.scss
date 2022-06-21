@@ -6,7 +6,6 @@
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
     padding-bottom: 60px;
   }
 
@@ -20,6 +19,10 @@
     justify-content: flex-start;
     flex-wrap: wrap;
   }
+}
+
+.films__list--library {
+  padding-top: 40px;
 }
 
 .films__item {

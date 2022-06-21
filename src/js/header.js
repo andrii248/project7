@@ -35,6 +35,8 @@ function onClickMyLibraryLink(event) {
     document.querySelector('.removeBtn').classList.remove('visually-hidden');
   }
 
+  refs.moviesList.classList.add('films__list--library');
+
   filmTitleDark();
   refs.logoLink.style.cursor = 'pointer';
 }
@@ -55,6 +57,8 @@ function onClickHomeLink(event) {
   filmTitleDark();
   initHome();
   refs.logoLink.style.cursor = 'default';
+
+  refs.moviesList.classList.remove('films__list--library');
 }
 
 function onClickHomeOfLink(event) {
