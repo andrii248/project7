@@ -37,11 +37,13 @@ form.addEventListener('submit', e => {
       return data;
     };
 
-    getPageSearchMovie().then(data => {
-      if (data.movies.length !== 0) {
-        initPagination(getPageSearchMovie, renderPageHome);
-      }
-    });
+    // getPageSearchMovie().then(data => {
+    //   if (data.movies.length !== 0) {
+    //     initPagination(getPageSearchMovie, renderPageHome);
+    //   }
+    // });
+    initPagination(getPageSearchMovie, renderPageHome);
+
     // document.querySelector('.search__input').value = '';
     logoLink.addEventListener('click', onClickHomeOfLink);
     homeLink.addEventListener('click', onClickHomeOfLink);
