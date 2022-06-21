@@ -8,6 +8,7 @@ const refs = {
   backdrop: document.querySelector('.modal__backdrop'),
   modalContainer: document.querySelector('.modal__container'),
   container: document.querySelector('header'),
+  htmlTag: document.querySelector('html'),
 };
 
 refs.movieList.addEventListener('click', onShowModal);
@@ -15,13 +16,7 @@ refs.movieList.addEventListener('click', onShowModal);
 async function onShowModal(e) {
   e.preventDefault();
   refs.modalContainer.innerHTML = '';
-
-  // =========== disable scroll ===============
-  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-  const body = document.body;
-  body.style.position = 'fixed';
-  body.style.top = `-${scrollY}`;
-
+  refs.htmlTag.classList.add('modal-open');
   if (!e.target.classList.contains('films__img')) {
     return;
   }
@@ -119,15 +114,9 @@ function onCloseModal(e) {
     return;
   }
 
-  // =========== enable scroll ===============
-  const body = document.body;
-  const scrollY = body.style.top;
-  body.style.position = '';
-  body.style.top = '';
-  window.scrollTo(0, parseInt(scrollY || '0') * -1);
-
   renderLiberyAfterCloseModal();
   refs.backdrop.classList.add('is-hidden');
+  refs.htmlTag.classList.remove('modal-open');
   refs.backdrop.removeEventListener('click', onCloseModal);
   document.removeEventListener('keydown', onEscKeyClose);
 }
@@ -136,6 +125,7 @@ function onEscKeyClose(e) {
   if (e.code === 'Escape') {
     renderLiberyAfterCloseModal();
     refs.backdrop.classList.add('is-hidden');
+    refs.htmlTag.classList.remove('modal-open');
     refs.backdrop.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onEscKeyClose);
   }
@@ -154,7 +144,3 @@ function renderLiberyAfterCloseModal() {
     }
   }
 }
-
-window.addEventListener('scroll', () => {
-  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-});
