@@ -46,7 +46,7 @@ function onClickHomeLink(event) {
 
   makeHeader('home');
 
-  window.history.pushState('object or string', 'Title', pathname);
+  window.history.pushState('object or string', 'Title', '/');
   refs.homeLink.removeEventListener('click', onClickHomeLink);
   refs.logoLink.removeEventListener('click', onClickHomeLink);
   refs.switcher.classList.remove('visually-hidden');
@@ -73,10 +73,46 @@ window.addEventListener('load', event => {
   if (!location.href.includes('mylibrary')) {
     pathname = location.pathname;
   }
-  console.log(pathname);
+
   if (location.href.includes('mylibrary')) {
     window.history.pushState('object or string', 'Title', pathname);
     onClickMyLibraryLink(event);
+  }
+});
+
+window.addEventListener('popstate', e => {
+  if (window.location.pathname === pathname) {
+    // console.log(pathname);
+    e.preventDefault();
+    refs.homeLink.parentElement.classList.add('nav__item--active');
+    refs.myLibraryLink.parentElement.classList.remove('nav__item--active');
+
+    makeHeader('home');
+
+    refs.homeLink.removeEventListener('click', onClickHomeLink);
+    refs.logoLink.removeEventListener('click', onClickHomeLink);
+    refs.switcher.classList.remove('visually-hidden');
+    refs.moviesList.innerHTML = '';
+    document.querySelector('.search__input').value = '';
+    filmTitleDark();
+    initHome();
+    refs.logoLink.style.cursor = 'default';
+    console.log('heder');
+  } else if (window.location.pathname === '/mylibrary') {
+    e.preventDefault();
+    refs.logoLink.addEventListener('click', onClickHomeLink);
+    refs.homeLink.addEventListener('click', onClickHomeLink);
+    refs.homeLink.parentElement.classList.remove('nav__item--active');
+    refs.myLibraryLink.parentElement.classList.add('nav__item--active');
+    refs.switcher.classList.add('visually-hidden');
+    makeHeader('library');
+
+    refs.moviesList.innerHTML = '';
+    initPagination(getWatched, renderPage);
+
+    filmTitleDark();
+    refs.logoLink.style.cursor = 'pointer';
+    console.log('library');
   }
 });
 
