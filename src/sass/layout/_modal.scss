@@ -133,6 +133,7 @@
   opacity: 1;
   visibility: visible;
 }
+
 .modal__close-btn {
   display: flex;
   justify-content: center;
@@ -143,17 +144,25 @@
   width: 30px;
   height: 30px;
   background-color: #fff;
-  color: #000;
+  fill: #000;
   padding: 0;
   border: none;
   cursor: pointer;
 
+
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
 
   &:hover,
   &:focus {
-    color: #ff6b01;
+    fill: #ff6b01;
   }
+
+}
+
+.modal__close-btn--dark {
+  background-color: #423e3e;
+  fill: #fff;
 }
 
 .modal__close-icon {
