@@ -134,6 +134,21 @@
   opacity: 1;
   visibility: visible;
 }
+.trailer-player {
+  min-width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 1000px;
+    height: 700px;
+  }
+}
+
+;
 .modal__close-btn {
   display: flex;
   justify-content: center;
