@@ -13,6 +13,7 @@ export const refs = {
   moviesList: document.querySelector('.films__list'),
   switcher: document.querySelector('.switcher'),
 };
+let pathname = '';
 
 refs.logoLink.addEventListener('click', e => e.preventDefault());
 refs.homeLink.addEventListener('click', e => e.preventDefault());
@@ -26,6 +27,7 @@ function onClickMyLibraryLink(event) {
   refs.myLibraryLink.parentElement.classList.add('nav__item--active');
   refs.switcher.classList.add('visually-hidden');
   makeHeader('library');
+  pathname = location.pathname;
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPage);
@@ -44,7 +46,7 @@ function onClickHomeLink(event) {
 
   makeHeader('home');
 
-  window.history.pushState('object or string', 'Title', '/');
+  window.history.pushState('object or string', 'Title', pathname);
   refs.homeLink.removeEventListener('click', onClickHomeLink);
   refs.logoLink.removeEventListener('click', onClickHomeLink);
   refs.switcher.classList.remove('visually-hidden');
@@ -73,7 +75,7 @@ const renderPageLibrary = movies => {
 
 window.addEventListener('load', event => {
   if (location.href.includes('mylibrary')) {
-    //window.history.pushState('object or string', 'Title', '/project7');
+    window.history.pushState('object or string', 'Title', pathname);
     onClickMyLibraryLink(event);
   }
 });
