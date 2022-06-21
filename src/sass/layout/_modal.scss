@@ -5,8 +5,8 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
-  overflow-y: auto;
-  overflow-x: hidden;
+  z-index: 1000;
+  overflow-y: scroll;
 
   transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,6 +133,20 @@
   opacity: 1;
   visibility: visible;
 }
+.trailer-player {
+  min-width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 600px;
+    height: 500px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 1000px;
+    height: 700px;
+  }
+}
+
 .modal__close-btn {
   display: flex;
   justify-content: center;
@@ -143,7 +157,7 @@
   width: 30px;
   height: 30px;
   background-color: #fff;
-  color: #000;
+  fill: #000;
   padding: 0;
   border: none;
   cursor: pointer;
@@ -152,8 +166,13 @@
 
   &:hover,
   &:focus {
-    color: #ff6b01;
+    fill: #ff6b01;
   }
+}
+
+.modal__close-btn--dark {
+  background-color: transparent;
+  fill: #fff;
 }
 
 .modal__close-icon {

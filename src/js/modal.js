@@ -1,9 +1,14 @@
-import { getMovie, findInWatched, findInQueue } from './tmdb';
+import { getMovie, findInWatched, findInQueue, getWatched, getQueue } from './tmdb';
+import { renderPage } from './my-liberary-render';
+import initPagination from './pagination';
+import { modalDark } from './dark_theme';
 
 const refs = {
   movieList: document.querySelector('.films__list'),
   backdrop: document.querySelector('.modal__backdrop'),
   modalContainer: document.querySelector('.modal__container'),
+  container: document.querySelector('header'),
+  htmlTag: document.querySelector('html'),
 };
 
 refs.movieList.addEventListener('click', onShowModal);
@@ -11,7 +16,7 @@ refs.movieList.addEventListener('click', onShowModal);
 async function onShowModal(e) {
   e.preventDefault();
   refs.modalContainer.innerHTML = '';
-
+  refs.htmlTag.classList.add('modal-open');
   if (!e.target.classList.contains('films__img')) {
     return;
   }
@@ -81,24 +86,18 @@ async function getMovieAndUpdateUI(selectedMovie) {
       </div>`;
 
     refs.modalContainer.insertAdjacentHTML('beforeend', modalMarkup);
-    if (localStorage.getItem('theme') === 'dark') {
-      const film_title = document.querySelector('.modal__title');
-      const film_values = document.querySelector('.film-values');
-      const modal_description = document.querySelector('.modal__description');
-      const film_vote = document.querySelector('.film-values__votes--color');
-      console.log(modal_description);
-      modal_description.classList.add('dark');
-      film_values.classList.add('film-values--dark_theme');
-      film_vote.classList.add('film_votes--dark');
-      film_title.classList.add('title_dark');
-    }
+    modalDark();
   } catch (e) {
     console.log(e);
   }
-    // перевірка чи є фільм в локал-сторедж для зміни тексту
+  // перевірка чи є фільм в локал-сторедж для зміни тексту
 
-  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
-  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
+  const btnWatched = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--watched');
+  const btnQueue = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--queue');
   console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
@@ -115,15 +114,33 @@ function onCloseModal(e) {
     return;
   }
 
+  renderLiberyAfterCloseModal();
   refs.backdrop.classList.add('is-hidden');
+  refs.htmlTag.classList.remove('modal-open');
   refs.backdrop.removeEventListener('click', onCloseModal);
   document.removeEventListener('keydown', onEscKeyClose);
 }
 
 function onEscKeyClose(e) {
   if (e.code === 'Escape') {
+    renderLiberyAfterCloseModal();
     refs.backdrop.classList.add('is-hidden');
+    refs.htmlTag.classList.remove('modal-open');
     refs.backdrop.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onEscKeyClose);
+  }
+}
+
+function renderLiberyAfterCloseModal() {
+  const watcheBtn = document.querySelector('.watchedBtn');
+  const queueBtn = document.querySelector('.queueBtn');
+
+  if (refs.container.className === 'overlay overlayMyLiberary') {
+    if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
+      initPagination(getWatched, renderPage);
+    }
+    if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
+      initPagination(getQueue, renderPage);
+    }
   }
 }

@@ -76,4 +76,4 @@ export const createMessageEmptyList = () => {
   const isDarkTheme = localStorage.getItem('theme') === 'dark';
   const darkThemeClass = isDarkTheme ? 'dark' : '';
   return `<div class="emptyLibrary ${darkThemeClass}"><p class="emptyLibrary__text"> your movie list is empty. add a movie to your library</p></div>`;
-};
+}

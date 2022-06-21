@@ -135,6 +135,30 @@ export function filmTitleDark() {
   }
 }
 
+export function modalDark() {
+      const film_title = document.querySelector('.modal__title');
+      const film_values = document.querySelector('.film-values');
+      const modal_description = document.querySelector('.modal__description');
+      const film_vote = document.querySelector('.film-values__votes--color');
+      const modal_close_btn = document.querySelector('.modal__close-btn');
+    if (localStorage.getItem('theme') === 'dark') {
+      
+      console.log(modal_description);
+      modal_description.classList.add('dark');
+      film_values.classList.add('film-values--dark_theme');
+      film_vote.classList.add('film_votes--dark');
+      film_title.classList.add('title_dark');
+      modal_close_btn.classList.add('modal__close-btn--dark');
+    }
+    else {
+      modal_description.classList.remove('dark');
+      film_values.classList.remove('film-values--dark_theme');
+      film_vote.classList.remove('film_votes--dark');
+      film_title.classList.remove('title_dark');
+      modal_close_btn.classList.remove('modal__close-btn--dark');
+    }
+}
+
 function switchTheme() {
   if (localStorage.getItem('theme') === 'dark') {
     localStorage.removeItem('theme');
