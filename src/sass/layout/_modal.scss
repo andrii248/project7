@@ -144,7 +144,7 @@
   width: 30px;
   height: 30px;
   background-color: #fff;
-  color: #000;
+  fill: #000;
   padding: 0;
   border: none;
   cursor: pointer;
@@ -153,8 +153,13 @@
 
   &:hover,
   &:focus {
-    color: #ff6b01;
+    fill: #ff6b01;
   }
+}
+
+.modal__close-btn--dark {
+  background-color: transparent;
+  fill: #fff;
 }
 
 .modal__close-icon {
