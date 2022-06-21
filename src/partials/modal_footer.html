@@ -3,12 +3,19 @@
 <div class="backdrop backdrop--is-hidden" data-modal>
   <div class="modal_footer">
     <button type="button" class="modal__button" data-modal-close>
-       <svg width="18px" height="18px" class="modal__icon">
-                <use href="./images/symbol-defs.svg#icon-close"></use>
-            </svg></button>
-    <h2 class="team_name">Лабораторія коду</h2>
+      <svg width="18px" height="18px" class="modal__icon">
+        <use href="./images/symbol-defs.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h2 class="team_name">Code laboratory</h2>
 
-    <table class="team">
+    <picture>
+      <source srcset="./images/collage/collage-1200px.jpg" media="(min-width: 1200px)" />
+      <source srcset="./images/collage/collage-768px.jpg" media="(min-width: 768px)" />
+      <source srcset="./images/collage/collage-480px.jpg" media="(min-width: 320px)" />
+      <img src="./images/collage/collage-1200px.jpg" alt="Team photo collage" />
+    </picture>
+    <!-- <table class="team">
       <tr class="team_member">
         <th class="team_member--name">Andrij Krupa</th>
         <td class="team_member--status">Team-leader</td>
@@ -60,6 +67,6 @@
       <li class="contacts_item"><a class="contacts__link" href="mailto:project7@gmail.com"><svg width="12px" height="12px" class="modal__icon">
                 <use href="./images/symbol-defs.svg#icon-email"></use>
             </svg> project7@gmail.com</a></li>
-    </ul>
+    </ul> -->
   </div>
 </div>
