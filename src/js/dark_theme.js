@@ -51,19 +51,23 @@ function addDark() { if (localStorage.getItem('theme') === 'dark') {
   
     
     setTimeout(() => {
-        const changeText = document.querySelectorAll('.films__title');
-        for (let title of changeText) {
-             title.classList.add('dark');
-        }
-        const changeCard = document.querySelectorAll('.films__item');
-        for (let card of changeCard) {
-             card.classList.add('dark_card');
-        }
-},500)
-} 
-else {
+
+      const changeText = document.querySelectorAll('.films__title');
+      for (let title of changeText) {
+        title.classList.add('dark');
+      }
+      const changeCard = document.querySelectorAll('.films__item');
+      for (let card of changeCard) {
+        card.classList.add('dark_card');
+      }
+      const changeEmptyContainer = document.querySelector('.emptyLibrare');
+      if (changeEmptyContainer) {
+        changeEmptyContainer.classList.add('dark')
+      };
+    }, 500);
+  } else {
     document.querySelector('html').classList.remove('dark');
-     refs.modal.classList.remove('dark_modal');
+    refs.modal.classList.remove('dark_modal');
     refs.modalFooter.classList.remove('dark_modal');
     refs.team.classList.remove('dark');
     refs.contacts_title.classList.remove('dark');
@@ -80,16 +84,23 @@ else {
     }
     
     setTimeout(() => {
-         const changeText = document.querySelectorAll('.films__title');         
-         for (let title of changeText) {
-             title.classList.remove('dark');
-        }
-         const changeCard = document.querySelectorAll('.films__item');
-        for (let card of changeCard) {
-             card.classList.remove('dark_card');
-        }
-    }, 500)
-}}
+      const changeText = document.querySelectorAll('.films__title');
+      for (let title of changeText) {
+        title.classList.remove('dark');
+      }
+      const changeCard = document.querySelectorAll('.films__item');
+      for (let card of changeCard) {
+        card.classList.remove('dark_card');
+      }
+      const changeEmptyContainer = document.querySelector('.emptyLibrare');
+      if (changeEmptyContainer) {
+        changeEmptyContainer.classList.remove('dark');
+      }  
+    }, 500);
+  }
+                    
+  paginationDark();
+}
 
 export function paginationDark() {
     const pagination_number = document.querySelectorAll('.pagination a');

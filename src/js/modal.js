@@ -1,10 +1,13 @@
-import { getMovie, findInWatched, findInQueue } from './tmdb';
-import { modalDark } from './dark_theme'
+import { getMovie, findInWatched, findInQueue, getWatched, getQueue } from './tmdb';
+import { renderPage } from './my-liberary-render';
+import initPagination from './pagination';
+import { modalDark } from './dark_theme';
 
 const refs = {
   movieList: document.querySelector('.films__list'),
   backdrop: document.querySelector('.modal__backdrop'),
   modalContainer: document.querySelector('.modal__container'),
+  container: document.querySelector('header'),
 };
 
 refs.movieList.addEventListener('click', onShowModal);
@@ -12,6 +15,12 @@ refs.movieList.addEventListener('click', onShowModal);
 async function onShowModal(e) {
   e.preventDefault();
   refs.modalContainer.innerHTML = '';
+
+  // =========== disable scroll ===============
+  const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+  const body = document.body;
+  body.style.position = 'fixed';
+  body.style.top = `-${scrollY}`;
 
   if (!e.target.classList.contains('films__img')) {
     return;
@@ -88,10 +97,14 @@ async function getMovieAndUpdateUI(selectedMovie) {
   } catch (e) {
     console.log(e);
   }
-    // перевірка чи є фільм в локал-сторедж для зміни тексту
+  // перевірка чи є фільм в локал-сторедж для зміни тексту
 
-  const btnWatched = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--watched");
-  const btnQueue = document.querySelector('.modal__container').getElementsByClassName("modal__btn modal__btn--queue");
+  const btnWatched = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--watched');
+  const btnQueue = document
+    .querySelector('.modal__container')
+    .getElementsByClassName('modal__btn modal__btn--queue');
   console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
@@ -108,6 +121,14 @@ function onCloseModal(e) {
     return;
   }
 
+  // =========== enable scroll ===============
+  const body = document.body;
+  const scrollY = body.style.top;
+  body.style.position = '';
+  body.style.top = '';
+  window.scrollTo(0, parseInt(scrollY || '0') * -1);
+
+  renderLiberyAfterCloseModal();
   refs.backdrop.classList.add('is-hidden');
   refs.backdrop.removeEventListener('click', onCloseModal);
   document.removeEventListener('keydown', onEscKeyClose);
@@ -115,8 +136,26 @@ function onCloseModal(e) {
 
 function onEscKeyClose(e) {
   if (e.code === 'Escape') {
+    renderLiberyAfterCloseModal();
     refs.backdrop.classList.add('is-hidden');
     refs.backdrop.removeEventListener('click', onCloseModal);
     document.removeEventListener('keydown', onEscKeyClose);
   }
 }
+
+function renderLiberyAfterCloseModal() {
+  const watcheBtn = document.querySelector('header .container').lastChild.firstChild;
+  const queueBtn = document.querySelector('header .container').lastChild.lastChild;
+  if (refs.container.className === 'overlay overlayMyLiberary') {
+    if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
+      initPagination(getWatched, renderPage);
+    }
+    if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
+      initPagination(getQueue, renderPage);
+    }
+  }
+}
+
+window.addEventListener('scroll', () => {
+  document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+});
