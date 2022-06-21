@@ -27,7 +27,7 @@ function onClickMyLibraryLink(event) {
   refs.myLibraryLink.parentElement.classList.add('nav__item--active');
   refs.switcher.classList.add('visually-hidden');
   makeHeader('library');
-  pathname = location.pathname;
+
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPage);
@@ -69,11 +69,11 @@ function onClickHomeOfLink(event) {
   refs.logoLink.style.cursor = 'default';
 }
 
-const renderPageLibrary = movies => {
-  refs.moviesList.innerHTML = filmCardsTpl(movies, false);
-};
-
 window.addEventListener('load', event => {
+  if (!location.href.includes('mylibrary')) {
+    pathname = location.pathname;
+  }
+  console.log(pathname);
   if (location.href.includes('mylibrary')) {
     window.history.pushState('object or string', 'Title', pathname);
     onClickMyLibraryLink(event);
