@@ -142,9 +142,9 @@ function onEscKeyClose(e) {
 }
 
 function renderLiberyAfterCloseModal() {
-  const watcheBtn = document.querySelector('.watchedBtn');
-  const queueBtn = document.querySelector('.queueBtn');
-  console.log(watcheBtn.classList);
+  const watcheBtn = document.querySelector('header .container').lastChild.children[0];
+  const queueBtn = document.querySelector('header .container').lastChild.children[1];
+
   if (refs.container.className === 'overlay overlayMyLiberary') {
     if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
       initPagination(getWatched, renderPage);

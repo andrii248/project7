@@ -24,7 +24,7 @@ function iconTrailerClick(e) {
 let instance;
 
 function renderTrailer(url) {
-    const markup = `<iframe class="trailer-container" width="420" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+    const markup = `<iframe class="trailer-player" width="420" height="315" src="${url}" frameborder="0" allowfullscreen></iframe>`;
     instance = basicLightbox.create(markup);
     
     instance.show();
