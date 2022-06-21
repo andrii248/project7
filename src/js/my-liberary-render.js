@@ -17,9 +17,9 @@ refs.container.addEventListener('click', event => {
   // event.preventDefault();
 
   const elementClassList = event.target.classList;
-  const watchedBtn = refs.container.lastChild.children[0];
-  const queueBtn = refs.container.lastChild.children[1];
-  const removeBtn = refs.container.lastChild.children[2];
+  const watchedBtn = document.querySelector('.watchedBtn');
+  const queueBtn = document.querySelector('.queueBtn');
+  const removeBtn = document.querySelector('.removeBtn');
   const totalPagesWatched = Number(getWatched().totalPages);
   const totalPagesQueue = Number(getQueue().totalPages);
   const pagination = document.querySelector('.pagination');
