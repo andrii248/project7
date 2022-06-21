@@ -1,12 +1,16 @@
+.films__item {
+  padding-bottom: 10px;
+}
+
 .picture__wrap {
-    @media screen and (max-width: 767px) {
-        height: 90%;
-      }
-    
-      @media screen and (min-width: 768px) {
-        height: 92%;
-      }
-}      
+  @media screen and (max-width: 767px) {
+    height: 90%;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 92%;
+  }
+}
 
 .films__img {
   height: 100%;
