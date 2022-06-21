@@ -4,6 +4,7 @@ import { getWatched } from './tmdb';
 import { initHome } from './trending.js';
 import filmCardsTpl from '../templates/films-cards.js';
 import { filmTitleDark } from './dark_theme';
+import { renderPage } from './my-liberary-render';
 
 export const refs = {
   logoLink: document.querySelector('.logo'),
@@ -27,7 +28,10 @@ function onClickMyLibraryLink(event) {
   makeHeader('library');
   window.history.pushState('object or string', 'Title', '/mylibrary');
   refs.moviesList.innerHTML = '';
-  initPagination(getWatched, renderPageLibrary);
+  initPagination(getWatched, renderPage);
+  if (getWatched().movies.length > 0) {
+    document.querySelector('.removeBtn').classList.remove('visually-hidden');
+  }
 
   filmTitleDark();
   refs.logoLink.style.cursor = 'pointer';
@@ -45,7 +49,6 @@ function onClickHomeLink(event) {
   refs.logoLink.removeEventListener('click', onClickHomeLink);
   refs.switcher.classList.remove('visually-hidden');
   refs.moviesList.innerHTML = '';
-  // initPagination(getTrending, renderPageHome);
   document.querySelector('.search__input').value = '';
   filmTitleDark();
   initHome();
@@ -67,5 +70,12 @@ function onClickHomeOfLink(event) {
 const renderPageLibrary = movies => {
   refs.moviesList.innerHTML = filmCardsTpl(movies, false);
 };
+
+window.addEventListener('load', event => {
+  if (location.href.includes('mylibrary')) {
+    //window.history.pushState('object or string', 'Title', '/project7');
+    onClickMyLibraryLink(event);
+  }
+});
 
 export default onClickHomeOfLink;
