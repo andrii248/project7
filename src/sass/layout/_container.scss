@@ -51,16 +51,16 @@
     margin-bottom: 32px;
   }
 
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 
-  transition: transform 250ms, box-shadow 250ms;
+  transition: transform 700ms, box-shadow 500ms;
 
   &:hover,
   &:focus {
     transform: scale(1.03);
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   }
 }
 
@@ -68,7 +68,7 @@
   &:hover,
   &:focus {
     border: 1px solid rgb(255, 107, 8);
-    box-shadow: 0 14px 28px rgb(255, 107, 8), 0 10px 10px rgb(255, 107, 8);
+    box-shadow: 0 10px 14px rgb(255, 107, 8), 0 5px 5px rgb(255, 107, 8);
   }
 }
 
