@@ -10,7 +10,8 @@ const refs = {
   iconMoon: document.querySelector('.icon--moon'),
   modalFooter: document.querySelector('.modal_footer'),
   modal: document.querySelector('.modal'),
-  team: document.querySelector('.team'),
+  team: document.querySelector('.team__list'),
+  teamSpan: document.querySelector('.owod'),
   contacts: document.querySelectorAll('.contacts__link'),
   contacts_title: document.querySelector('.contacts__title'),
   footer: document.querySelector('.footer'),
@@ -31,6 +32,7 @@ function addDark() {
     refs.team.classList.add('dark');
     refs.contacts_title.classList.add('dark');
     refs.footer.classList.add('dark_footer');
+    refs.teamSpan.classList.add('dark');
     // setTimeout(() => {
     // const pagination_number = document.querySelectorAll('.pagination a');
     // for (let number of pagination_number) {
@@ -68,6 +70,7 @@ function addDark() {
     refs.footer.classList.remove('dark_footer');
     refs.iconSunny.classList.add('visually-hidden');
     refs.iconMoon.classList.remove('visually-hidden');
+    refs.teamSpan.classList.remove('dark');
 
     for (let button of refs.switcherBtn) {
       button.classList.remove('dark');
