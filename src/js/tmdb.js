@@ -227,7 +227,7 @@ const getTrailerUrl = async id => {
   const data = response.data;
   let item = data.results.find(r => r.site === 'YouTube' && r.type === 'Trailer');
   if (item) {
-    return `https://www.youtube.com/embed/${item.key}`;
+    return `https://www.youtube.com/embed/${item.key}?autoplay=1`;
   }
   item = data.results.find(r => r.site === 'Vimeo' && r.type === 'Trailer');
   if (item) {
