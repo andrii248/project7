@@ -12,7 +12,7 @@ export const refs = {
   moviesList: document.querySelector('.films__list'),
   switcher: document.querySelector('.switcher'),
 };
-// let pathname = '';
+let pathname = '';
 
 refs.logoLink.addEventListener('click', e => e.preventDefault());
 refs.homeLink.addEventListener('click', e => e.preventDefault());
@@ -26,10 +26,10 @@ function onClickMyLibraryLink(event) {
   refs.myLibraryLink.parentElement.classList.add('nav__item--active');
   refs.switcher.classList.add('visually-hidden');
   makeHeader('library');
-  // if (!(event.type === 'popstate')) {
-  //   const libraryPath = pathname + 'mylibrary';
-  //   window.history.pushState('object or string', 'Title', libraryPath);
-  // }
+  if (!(event.type === 'popstate')) {
+    const libraryPath = pathname + 'mylibrary';
+    window.history.pushState('object or string', 'Title', libraryPath);
+  }
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPage);
   // if (getWatched().movies.length > 0) {
@@ -46,10 +46,10 @@ function onClickHomeLinkFromLibrary(event) {
   refs.homeLink.parentElement.classList.add('nav__item--active');
   refs.myLibraryLink.parentElement.classList.remove('nav__item--active');
   makeHeader('home');
-  // if (!(event.type === 'popstate')) {
-  //   let headerPath;
-  //   window.history.pushState('object or string', 'Title', pathname);
-  // }
+  if (!(event.type === 'popstate')) {
+    let headerPath;
+    window.history.pushState('object or string', 'Title', pathname);
+  }
   onClickHomeOfLink(event);
   refs.moviesList.classList.remove('films__list--library');
 }
@@ -66,24 +66,24 @@ function onClickHomeOfLink(event) {
   refs.logoLink.style.cursor = 'default';
 }
 
-// window.addEventListener('load', event => {
-//   event.preventDefault();
-//   if (!location.href.includes('mylibrary')) {
-//     pathname = location.pathname;
-//   }
-//   if (location.href.includes('mylibrary')) {
-//     let newLocation = location.href.replace('mylibrary', '');
-//     location.replace(newLocation);
-//     onClickMyLibraryLink(event);
-//   }
-// });
+window.addEventListener('load', event => {
+  event.preventDefault();
+  if (!location.href.includes('mylibrary')) {
+    pathname = location.pathname;
+  }
+  if (location.href.includes('mylibrary')) {
+    let newLocation = location.href.replace('mylibrary', '');
+    location.replace(newLocation);
+    onClickMyLibraryLink(event);
+  }
+});
 
-// window.addEventListener('popstate', e => {
-//   if (window.location.pathname === pathname) {
-//     onClickHomeLinkFromLibrary(e);
-//   } else if (window.location.pathname.includes('/mylibrary')) {
-//     onClickMyLibraryLink(e);
-//   }
-// });
+window.addEventListener('popstate', e => {
+  if (window.location.pathname === pathname) {
+    onClickHomeLinkFromLibrary(e);
+  } else if (window.location.pathname.includes('/mylibrary')) {
+    onClickMyLibraryLink(e);
+  }
+});
 
 export default onClickHomeOfLink;
