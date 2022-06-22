@@ -48,20 +48,13 @@ const getImage = path => {
 };
 
 const getGenresString = ids => {
-  /*return ids
-    .map(id => {
-      const genre = genres.find(genre => genre.id === id);
-      return genre ? genre.name : '';
-    })
-    .filter((el, index) => index < 2)
-    .join(', ');*/
   let genreArray = ids.map(id => {
     const genre = genres.find(genre => genre.id === id);
     return genre ? genre.name : '';
   });
   if (genreArray.length > 2) {
     genreArray = genreArray.slice(0, 2);
-    genreArray.push('...');
+    genreArray.push('Other');
   }
   return genreArray.join(', ');
 };
