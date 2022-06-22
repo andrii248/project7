@@ -98,7 +98,8 @@ async function getMovieAndUpdateUI(selectedMovie) {
   const btnQueue = document
     .querySelector('.modal__container')
     .getElementsByClassName('modal__btn modal__btn--queue');
-  
+  // console.log(btnWatched[0].childNodes[0].data);
+
   if (findInWatched(Number(selectedMovie))) {
     btnWatched[0].style.cssText += 'color:white;background-color:#ff6b01';
     btnWatched[0].childNodes[0].data = 'Remove from watched';
@@ -138,10 +139,10 @@ function renderLiberyAfterCloseModal() {
 
   if (refs.container.className === 'overlay overlayMyLiberary') {
     if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
-      initPagination(getWatched, renderPage);
+      initPagination(getWatched, renderPage, false);
     }
     if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
-      initPagination(getQueue, renderPage);
+      initPagination(getQueue, renderPage, false);
     }
   }
 }
