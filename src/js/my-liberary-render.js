@@ -75,5 +75,5 @@ refs.container.addEventListener('click', event => {
 export const createMessageEmptyList = () => {
   const isDarkTheme = localStorage.getItem('theme') === 'dark';
   const darkThemeClass = isDarkTheme ? 'dark' : '';
-  return `<div class="emptyLibrare ${darkThemeClass}"><p class="emptyLibrare__text"> your movie list is empty. add a movie to your library</p></div>`;
-};
+  return `<div class="emptyLibrary ${darkThemeClass}"><p class="emptyLibrary__text"> your movie list is empty. add a movie to your library</p></div>`;
+}
