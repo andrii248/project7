@@ -9,10 +9,12 @@ const pagination = document.querySelector('.pagination');
 
 let getPageFunction;
 let renderPageFunction;
+let scrollUp = true;
 
-const initPagination = (getPage, renderPage) => {
+const initPagination = (getPage, renderPage, scrollUpAfterRender = true) => {
   getPageFunction = getPage;
   renderPageFunction = renderPage;
+  scrollUp = scrollUpAfterRender;
   setPage(1);
 };
 
@@ -21,7 +23,9 @@ export const setPage = async page => {
   const data = await getPageFunction(page);
   renderPageFunction(data.movies);
   renderPagination(data.page, data.totalPages);
-  window.scrollTo(0, 0);
+  if (scrollUp) {
+    window.scrollTo(0, 0);
+  }
   spiner.spinerEnd();
 };
 
