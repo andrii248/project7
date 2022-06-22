@@ -98,7 +98,7 @@ async function getMovieAndUpdateUI(selectedMovie) {
   const btnQueue = document
     .querySelector('.modal__container')
     .getElementsByClassName('modal__btn modal__btn--queue');
-  console.log(btnWatched[0].childNodes[0].data);
+  // console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
     btnWatched[0].childNodes[0].data = 'Remove from watched';
