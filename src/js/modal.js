@@ -137,10 +137,10 @@ function renderLiberyAfterCloseModal() {
 
   if (refs.container.className === 'overlay overlayMyLiberary') {
     if (watcheBtn.classList.value === 'header__btn watchedBtn activeBtn') {
-      initPagination(getWatched, renderPage);
+      initPagination(getWatched, renderPage, false);
     }
     if (queueBtn.classList.value === 'header__btn queueBtn activeBtn') {
-      initPagination(getQueue, renderPage);
+      initPagination(getQueue, renderPage, false);
     }
   }
 }
