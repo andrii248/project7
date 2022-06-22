@@ -54,7 +54,7 @@
     margin-bottom: 32px;
   }
 
-  padding-bottom: 8px;
+  padding-bottom: 15px;
 
   transition: transform 700ms, box-shadow 500ms;
 
@@ -62,7 +62,7 @@
   &:focus {
     transform: scale(1.03);
     border-radius: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.22);
+    outline: 1px solid rgba(0, 0, 0, 0.22);
     box-shadow: 0 10px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   }
 }
@@ -73,6 +73,11 @@
     border: 1px solid rgb(255, 107, 8);
     box-shadow: 0 10px 14px rgb(255, 107, 8), 0 5px 5px rgb(255, 107, 8);
   }
+}
+
+.films__link {
+  width: 100%;
+  height: 100%;
 }
 
 .films__vote {
