@@ -52,7 +52,7 @@ const renderPagination = (page, totalPages) => {
     }
     for (let i = min; i <= max; i += 1) {
       if (i === page) {
-        buttons.push(`<a class="active" data-page="${i}">${i}</a>`);
+        buttons.push(`<a class="active" data-page="${'_'}">${i}</a>`);
       } else {
         buttons.push(`<a data-page="${i}">${i}</a>`);
       }
