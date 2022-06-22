@@ -101,10 +101,12 @@ async function getMovieAndUpdateUI(selectedMovie) {
   // console.log(btnWatched[0].childNodes[0].data);
 
   if (findInWatched(Number(selectedMovie))) {
+    btnWatched[0].style.cssText += 'color:white;background-color:#ff6b01';
     btnWatched[0].childNodes[0].data = 'Remove from watched';
   }
-
+  
   if (findInQueue(Number(selectedMovie))) {
+    btnQueue[0].style.cssText += 'color:white;background-color:#ff6b01';
     btnQueue[0].childNodes[0].data = 'Remove from queue';
   }
 }
