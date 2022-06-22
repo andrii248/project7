@@ -145,7 +145,6 @@ export function modalDark() {
   const film_vote = document.querySelector('.film-values__votes--color');
   const modal_close_btn = document.querySelector('.modal__close-btn');
   if (localStorage.getItem('theme') === 'dark') {
-    console.log(modal_description);
     modal_description.classList.add('dark');
     film_values.classList.add('film-values--dark_theme');
     film_vote.classList.add('film_votes--dark');
