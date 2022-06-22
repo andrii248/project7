@@ -41,6 +41,8 @@ function onClickMyLibraryLink(event) {
 }
 
 function onClickHomeLinkFromLibrary(event) {
+  refs.logoLink.removeEventListener('click', onClickHomeLinkFromLibrary);
+  refs.homeLink.removeEventListener('click', onClickHomeLinkFromLibrary);
   refs.homeLink.parentElement.classList.add('nav__item--active');
   refs.myLibraryLink.parentElement.classList.remove('nav__item--active');
   makeHeader('home');
