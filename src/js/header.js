@@ -2,7 +2,6 @@ import makeHeader from './heder-my-liberary';
 import initPagination from './pagination';
 import { getWatched } from './tmdb';
 import { initHome } from './trending.js';
-import filmCardsTpl from '../templates/films-cards.js';
 import { filmTitleDark } from './dark_theme';
 import { renderPage } from './my-liberary-render';
 
@@ -66,14 +65,13 @@ function onClickHomeOfLink(event) {
 }
 
 window.addEventListener('load', event => {
+  event.preventDefault();
   if (!location.href.includes('mylibrary')) {
     pathname = location.pathname;
   }
-});
-
-window.addEventListener('beforeunload', event => {
   if (location.href.includes('mylibrary')) {
-    location = location.href.replace('mylibrary', '');
+    let newLocation = location.href.replace('mylibrary', '');
+    location.replace(newLocation);
     onClickMyLibraryLink(event);
   }
 });
