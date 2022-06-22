@@ -277,8 +277,7 @@
 
   @media screen and (min-width: 1024px) {
     width: 136px;
-    &:hover,
-    &:focus {
+    &:hover{
         background-color: #ff6b01;
         color: #fff;
         border: none;
