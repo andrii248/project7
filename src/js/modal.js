@@ -15,19 +15,21 @@ refs.movieList.addEventListener('click', onShowModal);
 
 async function onShowModal(e) {
   e.preventDefault();
-  refs.modalContainer.innerHTML = '';
-  refs.htmlTag.classList.add('modal-open');
-  if (!e.target.classList.contains('films__img')) {
-    return;
+  if (e.target !== refs.movieList) {
+    refs.modalContainer.innerHTML = '';
+    refs.htmlTag.classList.add('modal-open');
+    if (!e.target.classList.contains('films__img')) {
+      return;
+    }
+    refs.backdrop.classList.remove('is-hidden');
+    e.stopPropagation();
+    const selectedMovie = e.target.dataset.id;
+
+    getMovieAndUpdateUI(selectedMovie);
+
+    refs.backdrop.addEventListener('click', onCloseModal);
+    document.addEventListener('keydown', onEscKeyClose);
   }
-  refs.backdrop.classList.remove('is-hidden');
-  e.stopPropagation();
-  const selectedMovie = e.target.dataset.id;
-
-  getMovieAndUpdateUI(selectedMovie);
-
-  refs.backdrop.addEventListener('click', onCloseModal);
-  document.addEventListener('keydown', onEscKeyClose);
 }
 
 async function getMovieAndUpdateUI(selectedMovie) {
@@ -104,7 +106,7 @@ async function getMovieAndUpdateUI(selectedMovie) {
     btnWatched[0].style.cssText += 'color:white;background-color:#ff6b01';
     btnWatched[0].childNodes[0].data = 'Remove from watched';
   }
-  
+
   if (findInQueue(Number(selectedMovie))) {
     btnQueue[0].style.cssText += 'color:white;background-color:#ff6b01';
     btnQueue[0].childNodes[0].data = 'Remove from queue';
