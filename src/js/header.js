@@ -32,9 +32,9 @@ function onClickMyLibraryLink(event) {
   }
   refs.moviesList.innerHTML = '';
   initPagination(getWatched, renderPage);
-  if (getWatched().movies.length > 0) {
-    document.querySelector('.removeBtn').classList.remove('visually-hidden');
-  }
+  // if (getWatched().movies.length > 0) {
+  //   document.querySelector('.removeBtn').classList.remove('visually-hidden');
+  // }
   refs.moviesList.classList.add('films__list--library');
   filmTitleDark();
   refs.logoLink.style.cursor = 'pointer';

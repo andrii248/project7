@@ -8,10 +8,14 @@ const refs = {
   theme: document.querySelector('theme'),
 };
 
-export const renderPage = movies =>
+export const renderPage = movies => {
   movies.length
     ? (refs.cardsList.innerHTML = filmCardsTpl(movies, false))
     : (refs.cardsList.innerHTML = createMessageEmptyList());
+  if (movies.length > 0) {
+    document.querySelector('.removeBtn').classList.remove('visually-hidden');
+  }
+};
 
 refs.container.addEventListener('click', event => {
   // event.preventDefault();
@@ -76,4 +80,4 @@ export const createMessageEmptyList = () => {
   const isDarkTheme = localStorage.getItem('theme') === 'dark';
   const darkThemeClass = isDarkTheme ? 'dark' : '';
   return `<div class="emptyLibrary ${darkThemeClass}"><p class="emptyLibrary__text"> your movie list is empty. add a movie to your library</p></div>`;
-}
+};
