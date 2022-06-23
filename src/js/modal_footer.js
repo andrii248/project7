@@ -2,7 +2,8 @@ const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modalFt: document.querySelector('[data-modal]'),
-    htmlTag: document.querySelector("html"),
+  htmlTag: document.querySelector("html"),
+    teamPhoto: document.querySelector('.team_photo'),
   };
 
   refs.openModalBtn.addEventListener('click', onOpenModal);

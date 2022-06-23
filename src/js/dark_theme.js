@@ -10,13 +10,13 @@ const refs = {
   iconMoon: document.querySelector('.icon--moon'),
   modalFooter: document.querySelector('.modal_footer'),
   modal: document.querySelector('.modal'),
-  team: document.querySelector('.team__list'),
+  team: document.querySelector('.team'),
   teamSpan: document.querySelector('.owod'),
-  contacts: document.querySelectorAll('.contacts__link'),
-  contacts_title: document.querySelector('.contacts__title'),
   footer: document.querySelector('.footer'),
   filmCard: document.querySelector('.films__item'),
   switcherBtn: document.querySelectorAll('.switcher__button'),
+  teamPhotoDay: document.querySelector('.team-photo--day-moode'),
+teamPhotoDark: document.querySelector('.team-photo--dark-moode'),
   // pagination_number: document.querySelector('.pagination a'),
 };
 
@@ -27,10 +27,11 @@ function addDark() {
     document.querySelector('html').classList.add('dark');
     refs.iconMoon.classList.add('visually-hidden');
     refs.iconSunny.classList.remove('visually-hidden');
+       refs.teamPhotoDay.classList.add('visually-hidden');
+    refs.teamPhotoDark.classList.remove('visually-hidden');
     refs.modal.classList.add('dark_modal');
     refs.modalFooter.classList.add('dark_modal');
     refs.team.classList.add('dark');
-    refs.contacts_title.classList.add('dark');
     refs.footer.classList.add('dark_footer');
     refs.teamSpan.classList.add('dark');
     // setTimeout(() => {
@@ -41,10 +42,6 @@ function addDark() {
     // }, 500);
     for (let button of refs.switcherBtn) {
       button.classList.add('dark');
-    }
-
-    for (let contact of refs.contacts) {
-      contact.classList.add('dark');
     }
 
     setTimeout(() => {
@@ -66,18 +63,15 @@ function addDark() {
     refs.modal.classList.remove('dark_modal');
     refs.modalFooter.classList.remove('dark_modal');
     refs.team.classList.remove('dark');
-    refs.contacts_title.classList.remove('dark');
     refs.footer.classList.remove('dark_footer');
     refs.iconSunny.classList.add('visually-hidden');
     refs.iconMoon.classList.remove('visually-hidden');
+       refs.teamPhotoDay.classList.remove('visually-hidden');
+    refs.teamPhotoDark.classList.add('visually-hidden');
     refs.teamSpan.classList.remove('dark');
 
     for (let button of refs.switcherBtn) {
       button.classList.remove('dark');
-    }
-
-    for (let contact of refs.contacts) {
-      contact.classList.remove('dark');
     }
 
     setTimeout(() => {
