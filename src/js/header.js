@@ -17,13 +17,19 @@ export const refs = {
 refs.logoLink.addEventListener('click', e => e.preventDefault());
 refs.homeLink.addEventListener('click', e => e.preventDefault());
 refs.myLibraryLink.addEventListener('click', onClickMyLibraryLink);
+let isMyLibrary = false;
 
 function onClickMyLibraryLink(event) {
+  event.preventDefault();
+  if (isMyLibrary) {
+    return;
+  }
+  isMyLibrary = true;
+
   refs.logoLink.addEventListener('click', onClickHomeLinkFromLibrary);
   refs.homeLink.addEventListener('click', onClickHomeLinkFromLibrary);
   refs.logoLink.removeEventListener('click', onClickHomeOfLink);
   refs.homeLink.removeEventListener('click', onClickHomeOfLink);
-  event.preventDefault();
   refs.homeLink.parentElement.classList.remove('nav__item--active');
   refs.myLibraryLink.parentElement.classList.add('nav__item--active');
   refs.switcher.classList.add('visually-hidden');
@@ -67,6 +73,7 @@ function onClickHomeOfLink(event) {
   initHome();
   refs.logoLink.style.cursor = 'default';
   refs.moviesList.classList.remove('films__list--library');
+  isMyLibrary = false;
 }
 
 // window.addEventListener('load', event => {
