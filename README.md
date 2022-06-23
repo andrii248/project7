@@ -1,17 +1,17 @@
-# Filmoteka
+# Filmoteka project
 
 ## Команда розробників
 
-Andrij Krupa - Team-leader
-Elena Shmetan - Scrum Master
-Aleksandr Antonenko - Developer
-Ihor Sharkadi	- Developer
-Natalia Martyniuk	- Developer
-Yaroslav Vyshynskyi	- Developer
-Zoryana Fedorovska	- Developer
-Vitalij Gudyma - Developer
-Pavel Suglobov	- Developer
-Yuliia Kurian	- Developer
+Andrij Krupa - Team-leader\
+Elena Shmetan - Scrum Master\
+Aleksandr Antonenko - Developer\
+Ihor Sharkadi	- Developer\
+Natalia Martyniuk	- Developer\
+Yaroslav Vyshynskyi	- Developer\
+Zoryana Fedorovska	- Developer\
+Vitalij Gudyma - Developer\
+Pavel Suglobov	- Developer\
+Yuliia Kurian	- Developer\
 
 ## Ідея проекту
 
