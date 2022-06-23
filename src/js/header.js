@@ -21,6 +21,8 @@ refs.myLibraryLink.addEventListener('click', onClickMyLibraryLink);
 function onClickMyLibraryLink(event) {
   refs.logoLink.addEventListener('click', onClickHomeLinkFromLibrary);
   refs.homeLink.addEventListener('click', onClickHomeLinkFromLibrary);
+  refs.logoLink.removeEventListener('click', onClickHomeOfLink);
+  refs.homeLink.removeEventListener('click', onClickHomeOfLink);
   event.preventDefault();
   refs.homeLink.parentElement.classList.remove('nav__item--active');
   refs.myLibraryLink.parentElement.classList.add('nav__item--active');
