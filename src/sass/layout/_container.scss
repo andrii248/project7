@@ -54,15 +54,15 @@
     margin-bottom: 32px;
   }
 
-  padding-bottom: 8px;
-
+  padding-bottom: 10px;
+  min-height: 100%;
   transition: transform 700ms, box-shadow 500ms;
 
   &:hover,
   &:focus {
     transform: scale(1.03);
     border-radius: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.22);
+    outline: 1px solid rgba(0, 0, 0, 0.22);
     box-shadow: 0 10px 14px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   }
 }

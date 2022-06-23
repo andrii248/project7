@@ -7,7 +7,7 @@ export default function filmCardsTpl(movies, votesHidden = true) {
     .map(
       ({ image, title, genres, year, vote, id }) => `<li class="films__item ${darkThemeCardClass}">
     <a class="films__link" href="#">\
-      <div class="picture__wrap">
+      <div class="films-picture__wrap">
         <picture>
               <source srcset=${image.desktop} media="(min-width: 1024px)">
               <source srcset=${image.tablet} media="(min-width: 768px)">
@@ -15,10 +15,12 @@ export default function filmCardsTpl(movies, votesHidden = true) {
               <img class="films__img" src=${image.desktop} width = '100%' alt=${title}" data-id='${id}' loading="lazy">
         </picture>
       </div>
-      <h2 class="films__title ${darkThemeTitleClass}">${title}</h2>
-      <p class="films__info">
-        ${genres} | ${year} <span class="films__vote ${votesVisibleValue}">${vote}</span>
-      </p>
+      <div class="films-info__wrap">
+        <h2 class="films__title ${darkThemeTitleClass}">${title}</h2>
+        <p class="films__info">
+          ${genres} | ${year} <span class="films__vote ${votesVisibleValue}">${vote}</span>
+        </p>
+      </div>
     </a>
   </li>`
     )
