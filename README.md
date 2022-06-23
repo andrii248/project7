@@ -11,7 +11,7 @@ Yaroslav Vyshynskyi	- Developer\
 Zoryana Fedorovska	- Developer\
 Vitalij Gudyma - Developer\
 Pavel Suglobov	- Developer\
-Yuliia Kurian	- Developer\
+Yuliia Kurian	- Developer 
 
 ## Ідея проекту
 
