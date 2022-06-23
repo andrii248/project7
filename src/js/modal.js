@@ -17,10 +17,10 @@ async function onShowModal(e) {
   e.preventDefault();
   if (e.target !== refs.movieList) {
     refs.modalContainer.innerHTML = '';
-    refs.htmlTag.classList.add('modal-open');
     if (!e.target.classList.contains('films__img')) {
       return;
     }
+    refs.htmlTag.classList.add('modal-open');
     refs.backdrop.classList.remove('is-hidden');
     e.stopPropagation();
     const selectedMovie = e.target.dataset.id;
