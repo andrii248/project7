@@ -24,9 +24,9 @@ refs.container.addEventListener('click', event => {
   const watchedBtn = document.querySelector('.watchedBtn');
   const queueBtn = document.querySelector('.queueBtn');
   const removeBtn = document.querySelector('.removeBtn');
-  const totalPagesWatched = Number(getWatched().totalPages);
-  const totalPagesQueue = Number(getQueue().totalPages);
-  const pagination = document.querySelector('.pagination');
+  //const totalPagesWatched = Number(getWatched().totalPages);
+  //const totalPagesQueue = Number(getQueue().totalPages);
+  //const pagination = document.querySelector('.pagination');
 
   if (elementClassList.contains('watchedBtn')) {
     initPagination(getWatched, renderPage);
@@ -39,11 +39,11 @@ refs.container.addEventListener('click', event => {
       removeBtn.innerText = 'Clean watched';
     }
 
-    if (totalPagesWatched === 1) {
-      pagination.classList.add('visually-hidden');
-    } else {
-      pagination.classList.remove('visually-hidden');
-    }
+    // if (totalPagesWatched === 1) {
+    //   pagination.classList.add('visually-hidden');
+    // } else {
+    //   pagination.classList.remove('visually-hidden');
+    // }
   }
 
   if (elementClassList.contains('queueBtn')) {
@@ -57,11 +57,11 @@ refs.container.addEventListener('click', event => {
     queueBtn.classList.add('activeBtn');
     watchedBtn.classList.remove('activeBtn');
 
-    if (totalPagesQueue === 1) {
-      pagination.classList.add('visually-hidden');
-    } else {
-      pagination.classList.remove('visually-hidden');
-    }
+    // if (totalPagesQueue === 1) {
+    //   pagination.classList.add('visually-hidden');
+    // } else {
+    //   pagination.classList.remove('visually-hidden');
+    // }
   }
 
   if (elementClassList.contains('removeBtn')) {
