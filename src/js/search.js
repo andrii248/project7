@@ -31,6 +31,7 @@ form.addEventListener('submit', e => {
       } else if (data.movies.length !== 0) {
         /*==========*/
         switcher.classList.add('visually-hidden');
+        document.querySelector('.films__list').classList.toggle('films__list--library');
       }
       /*==========*/
       // spiner.spinerEnd();
