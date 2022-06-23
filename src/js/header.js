@@ -72,6 +72,7 @@ function onClickHomeOfLink(event) {
   filmTitleDark();
   initHome();
   refs.logoLink.style.cursor = 'default';
+  refs.moviesList.classList.remove('films__list--library');
   isMyLibrary = false;
 }
 
